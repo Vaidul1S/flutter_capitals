@@ -79,11 +79,11 @@ flutter:
   fonts:
     - family: Unkempt
       fonts:
-        - asset: fonts/Unkempt-Regular.ttf
+        - asset: assets/fonts/Unkempt-Regular.ttf
   #         style: italic
     - family: Unkempt Bold
       fonts:
-        - asset: fonts/Unkempt-Bold.ttf
+        - asset: assets/fonts/Unkempt-Bold.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

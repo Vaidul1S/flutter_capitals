@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_capitals/navbar.dart';
 import 'package:flutter_capitals/notifiers.dart';
+import 'package:flutter_capitals/pages/credits.dart';
 
-List<Widget> pages = [];
+List<Widget> pages = [Credits()];
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
