@@ -22,7 +22,7 @@ class Credits extends StatelessWidget {
     return Container(
       color: const Color.fromRGBO(182, 133, 28, 1),
       child: Column(
-        children: [         
+        children: [
           Expanded(
             flex: 4,
             child: Container(
@@ -41,11 +41,13 @@ class Credits extends StatelessWidget {
                       style: TextStyle(fontSize: 32),
                     ),
                     TextSpan(
-                      text: 'Guess a capital by the country name\nList of $count1 countries\n',
+                      text:
+                          'Guess a capital by the country name\nList of $count1 countries\n',
                       style: TextStyle(fontSize: 26),
                     ),
                     TextSpan(
-                      text: 'Or a capital by the state name\nList of all $count2 United States of America\n\n\n\n\n',
+                      text:
+                          'Or a capital by the state name\nList of all $count2 United States of America\n\n\n\n\n',
                       style: TextStyle(fontSize: 26),
                     ),
                     TextSpan(

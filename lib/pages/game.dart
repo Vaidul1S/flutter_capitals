@@ -339,7 +339,9 @@ class _GameScreenState extends State<Game> {
                     fontWeight: FontWeight.w800,
                     color: guess == 'Choose your answer'
                         ? Colors.white
-                        : (guess == 'Correct!' ? const Color.fromRGBO(95, 220, 57, 1) : const Color.fromRGBO(231, 36, 22, 1)),
+                        : (guess == 'Correct!'
+                              ? const Color.fromRGBO(95, 220, 57, 1)
+                              : const Color.fromRGBO(231, 36, 22, 1)),
                   ),
                 ),
               ],
@@ -509,7 +511,9 @@ class _GameScreenState extends State<Game> {
           alignment: Alignment.center,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: ultimate ? const Color.fromRGBO(105, 68, 119, 1) : const Color.fromRGBO(68, 107, 119, 1),
+            color: ultimate
+                ? const Color.fromRGBO(105, 68, 119, 1)
+                : const Color.fromRGBO(68, 107, 119, 1),
             borderRadius: BorderRadius.circular(15),
           ),
           child: Text(
