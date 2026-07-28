@@ -54,7 +54,7 @@ class _GameScreenState extends State<Game> {
 
   List<String> currentOptions = [];
 
-  Country get currentFlagItem => capitals[pick];
+  Country get currentItem => capitals[pick];
 
   @override
   void initState() {
@@ -105,7 +105,7 @@ class _GameScreenState extends State<Game> {
 
   void _submitGuess(String selected) {
     setState(() {
-      if (selected == currentFlagItem.name) {
+      if (selected == currentItem.name) {
         score += 1;
         guess = 'Correct!';
       } else {
@@ -268,7 +268,7 @@ class _GameScreenState extends State<Game> {
 
   // --------------------------------------------------------------------- Game ---------------------------------------------------------------------
   Widget _buildGameScreen() {
-    final flag = currentFlagItem;
+    final item = currentItem;
     return Container(
       color: const Color.fromRGBO(16, 43, 51, 1),
       child: Column(
@@ -284,7 +284,7 @@ class _GameScreenState extends State<Game> {
                 const Text(
                   'Lives:',
                   style: TextStyle(
-                    fontFamily: 'Papyrus',
+                    fontFamily: 'Unkempt',
                     fontSize: 24,
                     color: Color.fromRGBO(95, 220, 57, 1),
                   ),
@@ -306,18 +306,21 @@ class _GameScreenState extends State<Game> {
           Text(
             'Question #${question + 1}',
             style: const TextStyle(
-              fontFamily: 'Papyrus',
+              fontFamily: 'Unkempt',
               fontSize: 18,
-              color: Colors.white,
+              color: Color.fromRGBO(156, 39, 176, 1),
             ),
           ),
           Padding(
             padding: EdgeInsetsGeometry.symmetric(vertical: 15),
             child: Center(
-              child: SvgPicture.asset(
-                flag.capital,
-                height: 190,
-                fit: BoxFit.cover,
+              child: Text(
+                item.capital,
+                style: const TextStyle(
+                  fontFamily: 'Unkempt Bold',
+                  fontSize: 42,
+                  color: Color.fromRGBO(156, 39, 176, 1),
+                ),
               ),
             ),
           ),
@@ -334,11 +337,11 @@ class _GameScreenState extends State<Game> {
                   guess,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: 'Papyrus',
+                    fontFamily: 'Unkempt',
                     fontSize: 26,
                     fontWeight: FontWeight.w800,
                     color: guess == 'Choose your answer'
-                        ? Colors.white
+                        ? Color.fromRGBO(156, 39, 176, 1)
                         : (guess == 'Correct!'
                               ? const Color.fromRGBO(95, 220, 57, 1)
                               : const Color.fromRGBO(231, 36, 22, 1)),
@@ -354,9 +357,9 @@ class _GameScreenState extends State<Game> {
               child: Text(
                 'Score: $score',
                 style: const TextStyle(
-                  fontFamily: 'Papyrus',
+                  fontFamily: 'Unkempt',
                   fontSize: 36,
-                  color: Colors.white,
+                  color: Color.fromRGBO(156, 39, 176, 1),
                 ),
               ),
             ),
@@ -382,7 +385,7 @@ class _GameScreenState extends State<Game> {
                 child: Text(
                   'New Record!!!',
                   style: TextStyle(
-                    fontFamily: 'Papyrus',
+                    fontFamily: 'Unkempt',
                     fontSize: 24,
                     color: Color.fromRGBO(95, 220, 57, 1),
                   ),
@@ -394,9 +397,9 @@ class _GameScreenState extends State<Game> {
                 'You made $score correct answers\nout of $question questions.',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: 'Papyrus',
+                  fontFamily: 'Unkempt',
                   fontSize: 24,
-                  color: Colors.white,
+                  color: Color.fromRGBO(156, 39, 176, 1),
                 ),
               ),
             ),
@@ -406,9 +409,9 @@ class _GameScreenState extends State<Game> {
                 'Good luck next time.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'Papyrus',
+                  fontFamily: 'Unkempt',
                   fontSize: 24,
-                  color: Colors.white,
+                  color: Color.fromRGBO(156, 39, 176, 1),
                 ),
               ),
             ),
@@ -439,9 +442,9 @@ class _GameScreenState extends State<Game> {
                 child: Text(
                   'Reset Records',
                   style: TextStyle(
-                    fontFamily: 'Papyrus',
+                    fontFamily: 'Unkempt',
                     fontSize: 18,
-                    color: Colors.white,
+                    color: Color.fromRGBO(156, 39, 176, 1),
                     shadows: _textShadow(),
                   ),
                 ),
@@ -461,9 +464,9 @@ class _GameScreenState extends State<Game> {
                           '${h.score} of ${h.question} (mode: ${h.type})',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            fontFamily: 'Papyrus',
+                            fontFamily: 'Unkempt',
                             fontSize: 18,
-                            color: Colors.white,
+                            color: Color.fromRGBO(156, 39, 176, 1),
                           ),
                         ),
                       ),
@@ -490,9 +493,9 @@ class _GameScreenState extends State<Game> {
       text,
       textAlign: TextAlign.center,
       style: const TextStyle(
-        fontFamily: 'Papyrus',
+        fontFamily: 'Unkempt',
         fontSize: 36,
-        color: Colors.white,
+        color: Color.fromRGBO(156, 39, 176, 1),
       ),
     ),
   );
@@ -520,9 +523,9 @@ class _GameScreenState extends State<Game> {
             label,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Papyrus',
+              fontFamily: 'Unkempt',
               fontSize: 24,
-              color: Colors.white,
+              color: Color.fromRGBO(156, 39, 176, 1),
               shadows: _textShadow(),
             ),
           ),
@@ -543,9 +546,9 @@ class _GameScreenState extends State<Game> {
         label,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontFamily: 'Papyrus',
+          fontFamily: 'Unkempt',
           fontSize: 16,
-          color: Colors.white,
+          color: Color.fromRGBO(156, 39, 176, 1),
           shadows: _textShadow(),
         ),
       ),
@@ -564,9 +567,9 @@ class _GameScreenState extends State<Game> {
         label,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontFamily: 'Papyrus',
+          fontFamily: 'Unkempt',
           fontSize: 22,
-          color: Colors.white,
+          color: Color.fromRGBO(156, 39, 176, 1),
           shadows: _textShadow(),
         ),
       ),
@@ -585,9 +588,9 @@ class _GameScreenState extends State<Game> {
         'Forfeit',
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontFamily: 'Papyrus',
+          fontFamily: 'Unkempt',
           fontSize: 18,
-          color: Colors.white,
+          color: Color.fromRGBO(156, 39, 176, 1),
           shadows: _textShadow(),
         ),
       ),
