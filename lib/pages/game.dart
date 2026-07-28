@@ -286,7 +286,7 @@ class _GameScreenState extends State<Game> {
                   style: TextStyle(
                     fontFamily: 'Unkempt',
                     fontSize: 24,
-                    color: Color.fromRGBO(95, 220, 57, 1),
+                    color: Color.fromRGBO(156, 39, 176, 1),
                   ),
                 ),
                 const SizedBox(width: 20),
@@ -303,12 +303,15 @@ class _GameScreenState extends State<Game> {
                 ),
               ],
             ),
-          Text(
-            'Question #${question + 1}',
-            style: const TextStyle(
-              fontFamily: 'Unkempt',
-              fontSize: 18,
-              color: Color.fromRGBO(156, 39, 176, 1),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              'Question #${question + 1}',
+              style: const TextStyle(
+                fontFamily: 'Unkempt',
+                fontSize: 18,
+                color: Color.fromRGBO(156, 39, 176, 1),
+              ),
             ),
           ),
           Padding(
@@ -442,7 +445,7 @@ class _GameScreenState extends State<Game> {
                 child: Text(
                   'Reset Records',
                   style: TextStyle(
-                    fontFamily: 'Unkempt',
+                    fontFamily: 'Unkempt Bold',
                     fontSize: 18,
                     color: Color.fromRGBO(156, 39, 176, 1),
                     shadows: _textShadow(),
@@ -484,7 +487,7 @@ class _GameScreenState extends State<Game> {
 
   // --------------------------------------------------------------------- Style helpers ---------------------------------------------------------------------
   List<Shadow> _textShadow() => const [
-    Shadow(color: Colors.black, offset: Offset(-1, 1), blurRadius: 0),
+    Shadow(color: Colors.black, offset: Offset(1, -1), blurRadius: 0),
   ];
 
   Widget _title(String text) => Padding(
@@ -526,8 +529,8 @@ class _GameScreenState extends State<Game> {
               fontFamily: 'Unkempt',
               fontSize: 24,
               color: ultimate
-                ? const Color.fromRGBO(182, 133, 28, 1)
-                : const Color.fromRGBO(156, 39, 176, 1),
+                  ? const Color.fromRGBO(182, 133, 28, 1)
+                  : const Color.fromRGBO(156, 39, 176, 1),
               shadows: _textShadow(),
             ),
           ),
@@ -542,13 +545,13 @@ class _GameScreenState extends State<Game> {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
       decoration: BoxDecoration(
         color: const Color.fromRGBO(182, 133, 28, 1),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(25),
       ),
       child: Text(
         label,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontFamily: 'Unkempt',
+          fontFamily: 'Unkempt Bold',
           fontSize: 16,
           color: Color.fromRGBO(156, 39, 176, 1),
           shadows: _textShadow(),
@@ -581,7 +584,7 @@ class _GameScreenState extends State<Game> {
   Widget _forfeitLabel() {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
         color: const Color.fromRGBO(182, 133, 28, 1),
         borderRadius: BorderRadius.circular(25),
