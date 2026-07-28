@@ -296,8 +296,8 @@ class _GameScreenState extends State<Game> {
                     padding: const EdgeInsets.symmetric(horizontal: 2),
                     child: SvgPicture.asset(
                       'assets/images/heart.svg',
-                      width: 50,
-                      height: 50,
+                      width: 30,
+                      height: 30,
                     ),
                   ),
                 ),
@@ -516,7 +516,7 @@ class _GameScreenState extends State<Game> {
           decoration: BoxDecoration(
             color: ultimate
                 ? const Color.fromRGBO(105, 68, 119, 1)
-                : const Color.fromRGBO(68, 107, 119, 1),
+                : const Color.fromRGBO(182, 133, 28, 1),
             borderRadius: BorderRadius.circular(15),
           ),
           child: Text(
@@ -560,7 +560,7 @@ class _GameScreenState extends State<Game> {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
       padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(68, 107, 119, 1),
+        color: const Color.fromRGBO(182, 133, 28, 1),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Text(
