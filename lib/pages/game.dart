@@ -244,7 +244,7 @@ class _GameScreenState extends State<Game> {
             SizedBox(
               height: 220,
               child: Image.asset(
-                'assets/images/world.png',
+                'assets/images/globe.jpg',
                 width: 350,
                 height: 220,
                 fit: BoxFit.contain,
