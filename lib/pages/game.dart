@@ -269,106 +269,103 @@ class _GameScreenState extends State<Game> {
   // --------------------------------------------------------------------- Game ---------------------------------------------------------------------
   Widget _buildGameScreen() {
     final item = currentItem;
-    return Container(
-      color: const Color.fromRGBO(16, 43, 51, 1),
-      child: Column(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton(onPressed: _forfeit, child: _forfeitLabel()),
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: TextButton(onPressed: _forfeit, child: _forfeitLabel()),
+        ),
+        if (lives != null && lives! > 0)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Lives:',
+                style: TextStyle(
+                  fontFamily: 'Unkempt',
+                  fontSize: 24,
+                  color: Color.fromRGBO(156, 39, 176, 1),
+                ),
+              ),
+              const SizedBox(width: 20),
+              ...List.generate(
+                lives!,
+                (i) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  child: SvgPicture.asset(
+                    'assets/images/heart.svg',
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
+              ),
+            ],
           ),
-          if (lives != null && lives! > 0)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Lives:',
-                  style: TextStyle(
-                    fontFamily: 'Unkempt',
-                    fontSize: 24,
-                    color: Color.fromRGBO(156, 39, 176, 1),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                ...List.generate(
-                  lives!,
-                  (i) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2),
-                    child: SvgPicture.asset(
-                      'assets/images/heart.svg',
-                      width: 30,
-                      height: 30,
-                    ),
-                  ),
-                ),
-              ],
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Text(
+            'Question #${question + 1}',
+            style: const TextStyle(
+              fontFamily: 'Unkempt',
+              fontSize: 18,
+              color: Color.fromRGBO(156, 39, 176, 1),
             ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsetsGeometry.symmetric(vertical: 15),
+          child: Center(
             child: Text(
-              'Question #${question + 1}',
+              item.capital,
               style: const TextStyle(
-                fontFamily: 'Unkempt',
-                fontSize: 18,
+                fontFamily: 'Unkempt Bold',
+                fontSize: 42,
                 color: Color.fromRGBO(156, 39, 176, 1),
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsetsGeometry.symmetric(vertical: 15),
-            child: Center(
-              child: Text(
-                item.capital,
-                style: const TextStyle(
-                  fontFamily: 'Unkempt Bold',
-                  fontSize: 42,
-                  color: Color.fromRGBO(156, 39, 176, 1),
+        ),
+        Expanded(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              for (var i = 0; i < currentOptions.length; i++)
+                GestureDetector(
+                  onTap: () => _submitGuess(currentOptions[i]),
+                  child: _optionLabel('${i + 1}. ${currentOptions[i]}'),
                 ),
-              ),
-            ),
-          ),
-          Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                for (var i = 0; i < currentOptions.length; i++)
-                  GestureDetector(
-                    onTap: () => _submitGuess(currentOptions[i]),
-                    child: _optionLabel('${i + 1}. ${currentOptions[i]}'),
-                  ),
-                Text(
-                  guess,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Unkempt',
-                    fontSize: 26,
-                    fontWeight: FontWeight.w800,
-                    color: guess == 'Choose your answer'
-                        ? Color.fromRGBO(156, 39, 176, 1)
-                        : (guess == 'Correct!'
-                              ? const Color.fromRGBO(95, 220, 57, 1)
-                              : const Color.fromRGBO(231, 36, 22, 1)),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              child: Text(
-                'Score: $score',
-                style: const TextStyle(
+              Text(
+                guess,
+                textAlign: TextAlign.center,
+                style: TextStyle(
                   fontFamily: 'Unkempt',
-                  fontSize: 36,
-                  color: Color.fromRGBO(156, 39, 176, 1),
+                  fontSize: 26,
+                  fontWeight: FontWeight.w800,
+                  color: guess == 'Choose your answer'
+                      ? Color.fromRGBO(156, 39, 176, 1)
+                      : (guess == 'Correct!'
+                            ? const Color.fromRGBO(95, 220, 57, 1)
+                            : const Color.fromRGBO(231, 36, 22, 1)),
                 ),
+              ),
+            ],
+          ),
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            child: Text(
+              'Score: $score',
+              style: const TextStyle(
+                fontFamily: 'Unkempt',
+                fontSize: 36,
+                color: Color.fromRGBO(156, 39, 176, 1),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -583,7 +580,7 @@ class _GameScreenState extends State<Game> {
 
   Widget _forfeitLabel() {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
+      margin: EdgeInsets.only(top: 10),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
         color: const Color.fromRGBO(182, 133, 28, 1),
