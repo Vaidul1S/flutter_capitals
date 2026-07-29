@@ -66,7 +66,7 @@ class _GameScreenState extends State<Game> {
   Future<void> _loadHighScore() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final data = prefs.getString('fwf');
+      final data = prefs.getString('capitals');
       if (data != null) {
         final decoded = jsonDecode(data) as List<dynamic>;
         setState(() {
@@ -84,7 +84,7 @@ class _GameScreenState extends State<Game> {
     try {
       final prefs = await SharedPreferences.getInstance();
       final encoded = jsonEncode(highScore.map((h) => h.toJson()).toList());
-      await prefs.setString('fwf', encoded);
+      await prefs.setString('capitals', encoded);
     } catch (err) {
       debugPrint('Failed to save data: $err');
     }
@@ -250,7 +250,7 @@ class _GameScreenState extends State<Game> {
                 fit: BoxFit.contain,
               ),
             ),
-            _title('Fun With capitals!'),
+            _title('Capitals Game'),
             _menuButton('20 Questions', () => _startTheGame(20)),
             _menuButton('50 Questions', () => _startTheGame(50)),
             _menuButton('3 Lives', () => _startTheGame(3)),
