@@ -243,11 +243,13 @@ class _GameScreenState extends State<Game> {
           children: [
             SizedBox(
               height: 220,
-              child: Image.asset(
-                'assets/images/globe.jpg',
-                width: 350,
-                height: 220,
-                fit: BoxFit.contain,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(250),
+                child: Image.asset(
+                  'assets/images/globe.jpg',
+                  width: 350,                  
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             _title('Capitals Game'),
@@ -282,7 +284,7 @@ class _GameScreenState extends State<Game> {
               const Text(
                 'Lives:',
                 style: TextStyle(
-                  fontFamily: 'Unkempt',
+                  fontFamily: 'Unkempt Bold',
                   fontSize: 24,
                   color: Color.fromRGBO(156, 39, 176, 1),
                 ),
@@ -306,7 +308,7 @@ class _GameScreenState extends State<Game> {
           child: Text(
             'Question #${question + 1}',
             style: const TextStyle(
-              fontFamily: 'Unkempt',
+              fontFamily: 'Unkempt Bold',
               fontSize: 18,
               color: Color.fromRGBO(156, 39, 176, 1),
             ),
@@ -338,7 +340,7 @@ class _GameScreenState extends State<Game> {
                 guess,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'Unkempt',
+                  fontFamily: 'Unkempt Bold',
                   fontSize: 26,
                   fontWeight: FontWeight.w800,
                   color: guess == 'Choose your answer'
@@ -358,7 +360,7 @@ class _GameScreenState extends State<Game> {
             child: Text(
               'Score: $score',
               style: const TextStyle(
-                fontFamily: 'Unkempt',
+                fontFamily: 'Unkempt Bold',
                 fontSize: 36,
                 color: Color.fromRGBO(156, 39, 176, 1),
               ),
@@ -385,7 +387,7 @@ class _GameScreenState extends State<Game> {
                 child: Text(
                   'New Record!!!',
                   style: TextStyle(
-                    fontFamily: 'Unkempt',
+                    fontFamily: 'Unkempt Bold',
                     fontSize: 24,
                     color: Color.fromRGBO(95, 220, 57, 1),
                   ),
@@ -397,7 +399,7 @@ class _GameScreenState extends State<Game> {
                 'You made $score correct answers\nout of $question questions.',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: 'Unkempt',
+                  fontFamily: 'Unkempt Bold',
                   fontSize: 24,
                   color: Color.fromRGBO(156, 39, 176, 1),
                 ),
@@ -409,7 +411,7 @@ class _GameScreenState extends State<Game> {
                 'Good luck next time.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'Unkempt',
+                  fontFamily: 'Unkempt Bold',
                   fontSize: 24,
                   color: Color.fromRGBO(156, 39, 176, 1),
                 ),
@@ -461,10 +463,10 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.score} of ${h.question} (mode: ${h.type})',
+                          '${h.type} mode - Score: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            fontFamily: 'Unkempt',
+                            fontFamily: 'Unkempt Bold',
                             fontSize: 18,
                             color: Color.fromRGBO(156, 39, 176, 1),
                           ),
@@ -493,7 +495,7 @@ class _GameScreenState extends State<Game> {
       text,
       textAlign: TextAlign.center,
       style: const TextStyle(
-        fontFamily: 'Unkempt',
+        fontFamily: 'Unkempt Bold',
         fontSize: 36,
         color: Color.fromRGBO(156, 39, 176, 1),
       ),
@@ -523,7 +525,7 @@ class _GameScreenState extends State<Game> {
             label,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Unkempt',
+              fontFamily: 'Unkempt Bold',
               fontSize: 24,
               color: ultimate
                   ? const Color.fromRGBO(182, 133, 28, 1)
@@ -569,7 +571,7 @@ class _GameScreenState extends State<Game> {
         label,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontFamily: 'Unkempt',
+          fontFamily: 'Unkempt Bold',
           fontSize: 22,
           color: Color.fromRGBO(156, 39, 176, 1),
           shadows: _textShadow(),
@@ -590,7 +592,7 @@ class _GameScreenState extends State<Game> {
         'Forfeit',
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontFamily: 'Unkempt',
+          fontFamily: 'Unkempt Bold',
           fontSize: 18,
           color: Color.fromRGBO(156, 39, 176, 1),
           shadows: _textShadow(),
