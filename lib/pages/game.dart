@@ -257,12 +257,22 @@ class _GameScreenState extends State<Game> {
               ),
             ),
             _title('Capitals Game'),
-            IconButton(onPressed: () {selectedModeNotifier.value !=selectedModeNotifier.value;},
-             icon: ValueListenableBuilder(valueListenable: selectedModeNotifier, builder: (context, modeSwitch, child){
-              return Container(
-                child:modeSwitch ? ImageIcon(AssetImage('assets/images/world.png')) : ImageIcon(AssetImage('assets/images/usa.png')),
-              );
-             })),
+            IconButton(
+              onPressed: () {
+                selectedModeNotifier.value != selectedModeNotifier.value;
+              },
+              icon: ValueListenableBuilder(
+                valueListenable: selectedModeNotifier,
+                builder: (context, modeSwitch, child) {
+                  return SizedBox(
+                    height: 50,
+                    child: modeSwitch
+                        ? Image.asset('assets/images/world.png')
+                        : Image.asset('assets/images/usa.png'),
+                  );
+                },
+              ),
+            ),
             _menuButton('20 Questions', () => _startTheGame(20)),
             _menuButton('50 Questions', () => _startTheGame(50)),
             _menuButton('3 Lives', () => _startTheGame(3)),
