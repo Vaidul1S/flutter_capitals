@@ -259,8 +259,8 @@ class _GameScreenState extends State<Game> {
             _title('Capitals Game'),
             IconButton(onPressed: () {selectedModeNotifier.value !=selectedModeNotifier.value;},
              icon: ValueListenableBuilder(valueListenable: selectedModeNotifier, builder: (context, modeSwitch, child){
-              return Icon(
-                modeSwitch ? ImageIcon(AssetImage('assets/images/world.png')) : ImageIcon(AssetImage('assets/images/usa.png')),
+              return Container(
+                child:modeSwitch ? ImageIcon(AssetImage('assets/images/world.png')) : ImageIcon(AssetImage('assets/images/usa.png')),
               );
              })),
             _menuButton('20 Questions', () => _startTheGame(20)),
