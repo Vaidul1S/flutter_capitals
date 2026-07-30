@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../data/world.dart';
+import '../data/usa.dart';
 
 class HighScoreEntry {
   final int score;
@@ -51,10 +52,12 @@ class _GameScreenState extends State<Game> {
   bool showHighScore = false;
   String? type;
   bool newRecord = false;
+  bool modeSwitch = false;
 
   List<String> currentOptions = [];
 
   Country get currentItem => capitals[pick];
+  UsState get currentUSItem => usCapitals[pick];
 
   @override
   void initState() {
@@ -247,12 +250,13 @@ class _GameScreenState extends State<Game> {
                 borderRadius: BorderRadius.circular(250),
                 child: Image.asset(
                   'assets/images/globe.jpg',
-                  width: 350,                  
+                  width: 350,
                   fit: BoxFit.contain,
                 ),
               ),
             ),
             _title('Capitals Game'),
+            _modeButton(),
             _menuButton('20 Questions', () => _startTheGame(20)),
             _menuButton('50 Questions', () => _startTheGame(50)),
             _menuButton('3 Lives', () => _startTheGame(3)),
@@ -597,6 +601,28 @@ class _GameScreenState extends State<Game> {
           color: Color.fromRGBO(156, 39, 176, 1),
           shadows: _textShadow(),
         ),
+      ),
+    );
+  }
+
+  Widget _modeButton() {
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: SwitchListTile(
+        title: Text(
+          'Chose: World or USA',
+          style: TextStyle(
+            fontFamily: 'Unkempt Bold',
+            fontSize: 20,
+            color: Color.fromRGBO(156, 39, 176, 1),
+          ),
+        ),
+        value: modeSwitch,
+        onChanged: (bool value) {
+          setState(() {
+            modeSwitch = value;
+          });
+        },
       ),
     );
   }
