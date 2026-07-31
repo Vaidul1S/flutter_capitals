@@ -10,11 +10,13 @@ class HighScoreEntry {
   final int score;
   final int question;
   final String type;
+  final String mode;
 
-  HighScoreEntry({
+  HighScoreEntry(this.record, {
     required this.score,
     required this.question,
-    required this.type,
+    required this.type, 
+    required this.mode,
   });
 
   Map<String, dynamic> toJson() => {
@@ -27,6 +29,7 @@ class HighScoreEntry {
     score: json['score'] as int,
     question: json['question'] as int,
     type: json['type'] as String,
+    mode: json['mode'] as String,
   );
 }
 
@@ -52,15 +55,12 @@ class _GameScreenState extends State<Game> {
   bool showHighScore = false;
   String? type;
   bool newRecord = false;
+  String mode = 'World';
 
   List<String> currentOptions = [];
-
-  // true = world (capitals), false = USA (usCapitals)
+  
   final ValueNotifier<bool> selectedWorldNotifier = ValueNotifier<bool>(true);
 
-  // Returns the currently active list (world capitals or US state capitals)
-  // depending on the toggle. Both `Country` and `UsState` are expected to
-  // expose `.name` and `.capital`, so `dynamic` keeps this generic.
   List<dynamic> get _currentList =>
       selectedWorldNotifier.value ? capitals : usCapitals;
 
@@ -186,7 +186,7 @@ class _GameScreenState extends State<Game> {
     });
   }
 
-  Future<void> _saveRecord(int currentScore, int currentQuestion) async {
+  Future<void> _saveRecord(int currentScore, int currentQuestion, String currentMode) async {
     final matching = highScore.where((h) => h.type == type);
     final shouldSave =
         matching.isEmpty || matching.any((h) => h.score < currentScore);
@@ -199,6 +199,7 @@ class _GameScreenState extends State<Game> {
             score: currentScore,
             question: currentQuestion,
             type: type!,
+            mode: currentMode = selectedWorldNotifier.value ? 'World' : 'USA',
           ),
         ];
         newRecord = true;
@@ -211,11 +212,12 @@ class _GameScreenState extends State<Game> {
     if (gameOn && (lives == 0 || length == 0)) {
       final finalScore = score;
       final finalQuestion = question;
+      final finalMode = mode;
       setState(() {
         gameOn = false;
         gameOver = true;
       });
-      _saveRecord(finalScore, finalQuestion);
+      _saveRecord(finalScore, finalQuestion, finalMode);
     }
   }
 
@@ -507,7 +509,7 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.type} mode - Score: ${h.score}',
+                          '${h.mode} mode ${h.type} type - Score: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
