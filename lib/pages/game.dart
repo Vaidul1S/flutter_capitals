@@ -519,7 +519,7 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.mode} mode ${h.type} type - Score: ${h.score}',
+                          '${h.mode} ${h.type} - Score: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
