@@ -52,13 +52,12 @@ class _GameScreenState extends State<Game> {
   List<HighScoreEntry> highScore = [];
   bool showHighScore = false;
   String? type;
-  bool newRecord = false;
-  bool modeSwitch = false;
+  bool newRecord = false;  
 
   List<String> currentOptions = [];
 
   Country get currentItem => capitals[pick];
-  UsState get currentUSItem => usCapitals[pick];
+  UsState get currentUsItem => usCapitals[pick];
 
   @override
   void initState() {
@@ -259,14 +258,14 @@ class _GameScreenState extends State<Game> {
             _title('Capitals Game'),
             IconButton(
               onPressed: () {
-                selectedModeNotifier.value != selectedModeNotifier.value;
+                selectedWorldNotifier.value = !selectedWorldNotifier.value;
               },
               icon: ValueListenableBuilder(
-                valueListenable: selectedModeNotifier,
-                builder: (context, modeSwitch, child) {
+                valueListenable: selectedWorldNotifier,
+                builder: (context, selectedWorld, child) {
                   return SizedBox(
                     height: 50,
-                    child: modeSwitch
+                    child: selectedWorld
                         ? Image.asset('assets/images/world.png')
                         : Image.asset('assets/images/usa.png'),
                   );
