@@ -12,10 +12,10 @@ class HighScoreEntry {
   final String type;
   final String mode;
 
-  HighScoreEntry(this.record, {
+  HighScoreEntry({
     required this.score,
     required this.question,
-    required this.type, 
+    required this.type,
     required this.mode,
   });
 
@@ -23,6 +23,7 @@ class HighScoreEntry {
     'score': score,
     'question': question,
     'type': type,
+    'mode': mode,
   };
 
   factory HighScoreEntry.fromJson(Map<String, dynamic> json) => HighScoreEntry(
@@ -55,11 +56,12 @@ class _GameScreenState extends State<Game> {
   bool showHighScore = false;
   String? type;
   bool newRecord = false;
-  String mode = 'World';
 
   List<String> currentOptions = [];
-  
+
   final ValueNotifier<bool> selectedWorldNotifier = ValueNotifier<bool>(true);
+
+  String get _currentMode => selectedWorldNotifier.value ? 'World' : 'USA';
 
   List<dynamic> get _currentList =>
       selectedWorldNotifier.value ? capitals : usCapitals;
@@ -186,20 +188,28 @@ class _GameScreenState extends State<Game> {
     });
   }
 
-  Future<void> _saveRecord(int currentScore, int currentQuestion, String currentMode) async {
-    final matching = highScore.where((h) => h.type == type);
+  Future<void> _saveRecord(
+    int currentScore,
+    int currentQuestion,
+    String currentMode,
+  ) async {
+    final matching = highScore.where(
+      (h) => h.type == type && h.mode == currentMode,
+    );
     final shouldSave =
         matching.isEmpty || matching.any((h) => h.score < currentScore);
 
     if (shouldSave) {
       setState(() {
         highScore = [
-          ...highScore.where((h) => h.type != type),
+          ...highScore.where(
+            (h) => !(h.type == type && h.mode == currentMode),
+          ),
           HighScoreEntry(
             score: currentScore,
             question: currentQuestion,
             type: type!,
-            mode: currentMode = selectedWorldNotifier.value ? 'World' : 'USA',
+            mode: currentMode,
           ),
         ];
         newRecord = true;
@@ -212,7 +222,7 @@ class _GameScreenState extends State<Game> {
     if (gameOn && (lives == 0 || length == 0)) {
       final finalScore = score;
       final finalQuestion = question;
-      final finalMode = mode;
+      final finalMode = _currentMode;
       setState(() {
         gameOn = false;
         gameOver = true;
@@ -274,17 +284,17 @@ class _GameScreenState extends State<Game> {
                 valueListenable: selectedWorldNotifier,
                 builder: (context, selectedWorld, child) {
                   return Row(
-                    spacing: 20,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Select Mode',
                         style: TextStyle(
                           fontFamily: 'Unkempt Bold',
-                          color: const Color.fromRGBO(156, 39, 176, 1),
+                          color: Color.fromRGBO(156, 39, 176, 1),
                           fontSize: 20,
                         ),
                       ),
+                      const SizedBox(width: 20),
                       SizedBox(
                         height: 50,
                         child: selectedWorld
