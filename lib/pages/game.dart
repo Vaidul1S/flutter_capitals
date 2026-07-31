@@ -271,11 +271,25 @@ class _GameScreenState extends State<Game> {
               icon: ValueListenableBuilder<bool>(
                 valueListenable: selectedWorldNotifier,
                 builder: (context, selectedWorld, child) {
-                  return SizedBox(
-                    height: 50,
-                    child: selectedWorld
-                        ? Image.asset('assets/images/world.png')
-                        : Image.asset('assets/images/usa.png'),
+                  return Row(
+                    spacing: 20,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Select Mode',
+                        style: TextStyle(
+                          fontFamily: 'Unkempt Bold',
+                          color: const Color.fromRGBO(156, 39, 176, 1),
+                          fontSize: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50,
+                        child: selectedWorld
+                            ? Image.asset('assets/images/world.png')
+                            : Image.asset('assets/images/usa.png'),
+                      ),
+                    ],
                   );
                 },
               ),
