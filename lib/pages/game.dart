@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_capitals/notifiers.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../data/world.dart';
@@ -52,17 +51,25 @@ class _GameScreenState extends State<Game> {
   List<HighScoreEntry> highScore = [];
   bool showHighScore = false;
   String? type;
-  bool newRecord = false;  
+  bool newRecord = false;
 
   List<String> currentOptions = [];
 
-  Country get currentItem => capitals[pick];
-  UsState get currentUsItem => usCapitals[pick];
+  // true = world (capitals), false = USA (usCapitals)
+  final ValueNotifier<bool> selectedWorldNotifier = ValueNotifier<bool>(true);
+
+  // Returns the currently active list (world capitals or US state capitals)
+  // depending on the toggle. Both `Country` and `UsState` are expected to
+  // expose `.name` and `.capital`, so `dynamic` keeps this generic.
+  List<dynamic> get _currentList =>
+      selectedWorldNotifier.value ? capitals : usCapitals;
+
+  dynamic get currentItem => _currentList[pick];
 
   @override
   void initState() {
     super.initState();
-    pick = _random.nextInt(capitals.length);
+    pick = _random.nextInt(_currentList.length);
     _loadHighScore();
   }
 
@@ -93,14 +100,15 @@ class _GameScreenState extends State<Game> {
     }
   }
 
-  void _pickNewFlag() {
-    pick = _random.nextInt(capitals.length);
-    final flag = capitals[pick];
+  void _pickNewItem() {
+    final list = _currentList;
+    pick = _random.nextInt(list.length);
+    final item = list[pick];
     final opts = <String>[
-      flag.name,
-      capitals[_random.nextInt(capitals.length)].name,
-      capitals[_random.nextInt(capitals.length)].name,
-      capitals[_random.nextInt(capitals.length)].name,
+      item.name as String,
+      list[_random.nextInt(list.length)].name as String,
+      list[_random.nextInt(list.length)].name as String,
+      list[_random.nextInt(list.length)].name as String,
     ];
     opts.shuffle(_random);
     currentOptions = opts;
@@ -121,7 +129,7 @@ class _GameScreenState extends State<Game> {
         length = length! - 1;
       }
       question += 1;
-      _pickNewFlag();
+      _pickNewItem();
     });
     _checkGameEnd();
   }
@@ -132,7 +140,7 @@ class _GameScreenState extends State<Game> {
       score = 0;
       gameOn = true;
       guess = 'Choose your answer';
-      _pickNewFlag();
+      _pickNewItem();
     });
   }
 
@@ -260,7 +268,7 @@ class _GameScreenState extends State<Game> {
               onPressed: () {
                 selectedWorldNotifier.value = !selectedWorldNotifier.value;
               },
-              icon: ValueListenableBuilder(
+              icon: ValueListenableBuilder<bool>(
                 valueListenable: selectedWorldNotifier,
                 builder: (context, selectedWorld, child) {
                   return SizedBox(
@@ -334,10 +342,10 @@ class _GameScreenState extends State<Game> {
           ),
         ),
         Padding(
-          padding: EdgeInsetsGeometry.symmetric(vertical: 15),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Center(
             child: Text(
-              item.capital,
+              item.capital as String,
               style: const TextStyle(
                 fontFamily: 'Unkempt Bold',
                 fontSize: 42,
@@ -363,7 +371,7 @@ class _GameScreenState extends State<Game> {
                   fontSize: 26,
                   fontWeight: FontWeight.w800,
                   color: guess == 'Choose your answer'
-                      ? Color.fromRGBO(156, 39, 176, 1)
+                      ? const Color.fromRGBO(156, 39, 176, 1)
                       : (guess == 'Correct!'
                             ? const Color.fromRGBO(95, 220, 57, 1)
                             : const Color.fromRGBO(231, 36, 22, 1)),
@@ -459,7 +467,10 @@ class _GameScreenState extends State<Game> {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 margin: const EdgeInsets.only(top: 150, left: 20, bottom: 20),
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 8,
+                ),
                 child: Text(
                   'Reset Records',
                   style: TextStyle(
@@ -601,7 +612,7 @@ class _GameScreenState extends State<Game> {
 
   Widget _forfeitLabel() {
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 10),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
         color: const Color.fromRGBO(182, 133, 28, 1),
