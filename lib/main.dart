@@ -4,8 +4,9 @@ import 'package:flutter_capitals/navbar.dart';
 import 'package:flutter_capitals/notifiers.dart';
 import 'package:flutter_capitals/pages/credits.dart';
 import 'package:flutter_capitals/pages/game.dart';
+import 'package:flutter_capitals/pages/sheet.dart';
 
-List<Widget> pages = [Game(), Credits()];
+List<Widget> pages = [Game(), Credits(), SheetPage()];
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
