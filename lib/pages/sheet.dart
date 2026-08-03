@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../data/world.dart';
 
 class SheetPage extends StatelessWidget {
@@ -23,19 +22,18 @@ class SheetPage extends StatelessWidget {
                     '${country.name} ',
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Papyrus',
-                      color: Colors.white,
+                      fontSize: 30,
+                      fontFamily: 'Unkempt Bold',
+                      color: Color.fromRGBO(156, 39, 176, 1),
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Center(
-                      child: SvgPicture.asset(
-                        country.capital,
-                        height: 100,
-                        fit: BoxFit.contain,
-                      ),
+                  Text(
+                    '${country.capital} ',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontFamily: 'Unkempt',
+                      color: Color.fromRGBO(182, 133, 28, 1),
                     ),
                   ),
                 ],
