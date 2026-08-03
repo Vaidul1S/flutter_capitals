@@ -202,9 +202,7 @@ class _GameScreenState extends State<Game> {
     if (shouldSave) {
       setState(() {
         highScore = [
-          ...highScore.where(
-            (h) => !(h.type == type && h.mode == currentMode),
-          ),
+          ...highScore.where((h) => !(h.type == type && h.mode == currentMode)),
           HighScoreEntry(
             score: currentScore,
             question: currentQuestion,
