@@ -35,10 +35,19 @@ class SheetPage extends StatelessWidget {
                     ),
                     const SizedBox(width: 20),
                     SizedBox(
-                      height: 50,
+                      height: 70,
                       child: selectedWorld
                           ? Image.asset('assets/images/world.png')
                           : Image.asset('assets/images/usa.png'),
+                    ),
+                    Text(                      
+                      selectedWorld ? '   World' : '   USA',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontFamily: 'Unkempt Bold',
+                        color: Color.fromRGBO(156, 39, 176, 1),
+                      ),
                     ),
                   ],
                 );

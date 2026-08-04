@@ -28,8 +28,8 @@ class NavBarWidget extends StatelessWidget {
               label: 'Credits',
             ),
             NavigationDestination(
-              icon: Icon(Icons.list_alt_rounded, size: 20),
-              label: 'Sheet',
+              icon: Icon(Icons.list_rounded, size: 20),
+              label: 'Lists',
             ),
           ],
           onDestinationSelected: (int value) {
