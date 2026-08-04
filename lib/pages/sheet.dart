@@ -49,7 +49,9 @@ class SheetPage extends StatelessWidget {
             child: ValueListenableBuilder<bool>(
               valueListenable: selectedWorldNotifier,
               builder: (context, selectedWorld, child) {
-                final List<dynamic> currentList = selectedWorld ? capitals : usCapitals;
+                final List<dynamic> currentList = selectedWorld
+                    ? capitals
+                    : usCapitals;
                 return ListView.builder(
                   padding: const EdgeInsets.all(20),
                   itemCount: currentList.length,
@@ -73,8 +75,8 @@ class SheetPage extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               fontSize: 30,
-                              fontFamily: 'Unkempt Bold',
-                              color: Color.fromRGBO(156, 39, 176, 1),
+                              fontFamily: 'Unkempt',
+                              color: Color.fromRGBO(182, 133, 28, 1),
                             ),
                           ),
                         ],
