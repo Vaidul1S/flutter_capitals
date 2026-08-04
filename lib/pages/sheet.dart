@@ -49,7 +49,7 @@ class SheetPage extends StatelessWidget {
             child: ValueListenableBuilder<bool>(
               valueListenable: selectedWorldNotifier,
               builder: (context, selectedWorld, child) {
-                final currentList = selectedWorld ? capitals : usCapitals;
+                final List<dynamic> currentList = selectedWorld ? capitals : usCapitals;
                 return ListView.builder(
                   padding: const EdgeInsets.all(20),
                   itemCount: currentList.length,
@@ -60,7 +60,7 @@ class SheetPage extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            '${item.name}',
+                            item.name,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               fontSize: 30,
@@ -69,7 +69,7 @@ class SheetPage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${item.capital}',
+                            item.capital,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               fontSize: 30,
