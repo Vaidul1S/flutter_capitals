@@ -6,7 +6,7 @@ import '../data/usa.dart';
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
-  List<dynamic> get _currentList =>
+  List<dynamic> get currentList =>
       selectedWorldNotifier.value ? capitals : usCapitals;
 
   @override
@@ -45,35 +45,42 @@ class SheetPage extends StatelessWidget {
               },
             ),
           ),
-          Center(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(20),
-              itemBuilder: (context, index) {
-                final item = _currentList[index];
-                return Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  child: Column(
-                    children: [
-                      Text(
-                        '${item.name} ',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontFamily: 'Unkempt Bold',
-                          color: Color.fromRGBO(156, 39, 176, 1),
-                        ),
+          Expanded(
+            child: ValueListenableBuilder<bool>(
+              valueListenable: selectedWorldNotifier,
+              builder: (context, selectedWorld, child) {
+                final currentList = selectedWorld ? capitals : usCapitals;
+                return ListView.builder(
+                  padding: const EdgeInsets.all(20),
+                  itemCount: currentList.length,
+                  itemBuilder: (context, index) {
+                    final item = currentList[index];
+                    return Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      child: Column(
+                        children: [
+                          Text(
+                            '${item.name}',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 30,
+                              fontFamily: 'Unkempt Bold',
+                              color: Color.fromRGBO(156, 39, 176, 1),
+                            ),
+                          ),
+                          Text(
+                            '${item.capital}',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 30,
+                              fontFamily: 'Unkempt Bold',
+                              color: Color.fromRGBO(156, 39, 176, 1),
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        '${item.capital} ',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontFamily: 'Unkempt',
-                          color: Color.fromRGBO(182, 133, 28, 1),
-                        ),
-                      ),
-                    ],
-                  ),
+                    );
+                  },
                 );
               },
             ),
