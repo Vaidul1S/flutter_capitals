@@ -308,7 +308,7 @@ class _GameScreenState extends State<Game> {
             _menuButton('50 Questions', () => _startTheGame(50)),
             _menuButton('3 Lives', () => _startTheGame(3)),
             _menuButton('5 Lives', () => _startTheGame(5)),
-            _menuButton('Ultimate', () => _startTheGame(1), ultimate: true),
+            _menuButton('Sudden Death', () => _startTheGame(1), ultimate: true),
             GestureDetector(
               onTap: () => setState(() => showHighScore = true),
               child: _recordsLabel('Records'),

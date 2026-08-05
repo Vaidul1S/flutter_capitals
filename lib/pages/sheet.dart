@@ -40,7 +40,7 @@ class SheetPage extends StatelessWidget {
                           ? Image.asset('assets/images/world.png')
                           : Image.asset('assets/images/usa.png'),
                     ),
-                    Text(                      
+                    Text(
                       selectedWorld ? '  World' : '  USA',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
