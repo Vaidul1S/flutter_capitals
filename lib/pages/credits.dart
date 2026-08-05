@@ -1,8 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../data/world.dart';
-import '../data/usa.dart';
 
 class Credits extends StatelessWidget {
   const Credits({super.key});
@@ -16,9 +14,6 @@ class Credits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final count1 = capitals.length;
-    final count2 = usCapitals.length;
-
     return Container(
       color: const Color.fromRGBO(182, 133, 28, 1),
       child: Padding(
@@ -44,12 +39,7 @@ class Credits extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                            'Guess a capital by the country name\nList of $count1 countries\n',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      TextSpan(
-                        text:
-                            'Or a capital by the state name\nList of all $count2 United States of America\n\n\n\n\n',
+                            'Guess a capital by the world country name\nor by the state name of United States of America\n',
                         style: TextStyle(fontSize: 24),
                       ),
                       TextSpan(
