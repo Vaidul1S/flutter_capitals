@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../data/world.dart';
 import '../data/usa.dart';
 import '../data/eu.dart';
+import 'package:flutter_capitals/notifiers.dart';
 
 class HighScoreEntry {
   final int score;
@@ -64,9 +65,8 @@ class _GameScreenState extends State<Game> {
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
-    'assets/images/europa.png',
+    'assets/images/europa2.png',
   ];
-  final ValueNotifier<int> selectedWorldNotifier = ValueNotifier<int>(0);
 
   String get _currentMode => text[selectedWorldNotifier.value];
   

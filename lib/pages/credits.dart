@@ -39,7 +39,7 @@ class Credits extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                            'Guess a capital by the world country name\nor by the state name of United States of America\n',
+                            'Guess a World or Europe country or state of United States of America by the capital name\n\n',
                         style: TextStyle(fontSize: 24),
                       ),
                       TextSpan(

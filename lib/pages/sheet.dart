@@ -12,7 +12,7 @@ class SheetPage extends StatelessWidget {
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
-    'assets/images/europa.png',
+    'assets/images/europa2.png',
   ];
 
   List<dynamic> get currentList => worlds[selectedWorldNotifier.value];
