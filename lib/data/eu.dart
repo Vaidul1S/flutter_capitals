@@ -5,7 +5,7 @@ class EuCountry {
   const EuCountry({required this.name, required this.capital});
 }
 
-const List<EuCountry> capitals = [
+const List<EuCountry> euCapitals = [
   EuCountry(name: 'Airija', capital: 'Dublinas'),
   EuCountry(name: 'Albanija', capital: 'Tirana'),
   EuCountry(name: 'Andora', capital: 'Andora la Velja'),

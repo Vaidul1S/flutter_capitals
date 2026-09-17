@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_capitals/data/eu.dart';
 import 'package:flutter_capitals/notifiers.dart';
 import '../data/world.dart';
 import '../data/usa.dart';
@@ -6,8 +7,12 @@ import '../data/usa.dart';
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
+  List worlds = [capitals, usCapitals, euCapitals];
+  List text = [ "World", "USA", "Europe"];
+  List icons = ['assets/images/world.png', 'assets/images/usa.png', ];
+
   List<dynamic> get currentList =>
-      selectedWorldNotifier.value ? capitals : usCapitals;
+      worlds[selectedWorldNotifier.value];
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +22,9 @@ class SheetPage extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {
-              selectedWorldNotifier.value = !selectedWorldNotifier.value;
+              selectedWorldNotifier.value += 1;
             },
-            icon: ValueListenableBuilder<bool>(
+            icon: ValueListenableBuilder<int>(
               valueListenable: selectedWorldNotifier,
               builder: (context, selectedWorld, child) {
                 return Row(
@@ -36,12 +41,11 @@ class SheetPage extends StatelessWidget {
                     const SizedBox(width: 20),
                     SizedBox(
                       height: 70,
-                      child: selectedWorld
-                          ? Image.asset('assets/images/world.png')
-                          : Image.asset('assets/images/usa.png'),
+                      child: Image.asset(icons[selectedWorld]),
+
                     ),
                     Text(
-                      selectedWorld ? '  World' : '  USA',
+                      text[selectedWorld],
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 30,
@@ -55,7 +59,7 @@ class SheetPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ValueListenableBuilder<bool>(
+            child: ValueListenableBuilder<int>(
               valueListenable: selectedWorldNotifier,
               builder: (context, selectedWorld, child) {
                 final List<dynamic> currentList = selectedWorld
