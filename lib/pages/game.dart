@@ -59,13 +59,19 @@ class _GameScreenState extends State<Game> {
   bool newRecord = false;
 
   List<String> currentOptions = [];
+  static final List worlds = [capitals, usCapitals, euCapitals];
+  static const List text = ["World", "USA", "Europe"];
+  static const List icons = [
+    'assets/images/world.png',
+    'assets/images/usa.png',
+    'assets/images/europa.png',
+  ];
+  final ValueNotifier<int> selectedWorldNotifier = ValueNotifier<int>(0);
 
-  final ValueNotifier<bool> selectedWorldNotifier = ValueNotifier<bool>(true);
-
-  String get _currentMode => selectedWorldNotifier.value ? 'World' : 'USA';
-
+  String get _currentMode => text[selectedWorldNotifier.value];
+  
   List<dynamic> get _currentList =>
-      selectedWorldNotifier.value ? capitals : usCapitals;
+      worlds[selectedWorldNotifier.value];
 
   dynamic get currentItem => _currentList[pick];
 
@@ -277,9 +283,9 @@ class _GameScreenState extends State<Game> {
             _title('Capitals Game'),
             IconButton(
               onPressed: () {
-                selectedWorldNotifier.value = !selectedWorldNotifier.value;
+                selectedWorldNotifier.value = (selectedWorldNotifier.value + 1) % worlds.length;
               },
-              icon: ValueListenableBuilder<bool>(
+              icon: ValueListenableBuilder<int>(
                 valueListenable: selectedWorldNotifier,
                 builder: (context, selectedWorld, child) {
                   return Row(
@@ -296,9 +302,7 @@ class _GameScreenState extends State<Game> {
                       const SizedBox(width: 20),
                       SizedBox(
                         height: 50,
-                        child: selectedWorld
-                            ? Image.asset('assets/images/world.png')
-                            : Image.asset('assets/images/usa.png'),
+                        child: Image.asset(icons[selectedWorld]),
                       ),
                     ],
                   );

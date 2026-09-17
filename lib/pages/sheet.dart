@@ -8,7 +8,7 @@ class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
   static final List worlds = [capitals, usCapitals, euCapitals];
-  static const List text = ["World", "USA", "Europe"];
+  static const List text = ["  World", "  USA", "  Europe"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
@@ -25,7 +25,8 @@ class SheetPage extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {
-              selectedWorldNotifier.value = (selectedWorldNotifier.value + 1) % worlds.length;
+              selectedWorldNotifier.value =
+                  (selectedWorldNotifier.value + 1) % worlds.length;
             },
             icon: ValueListenableBuilder<int>(
               valueListenable: selectedWorldNotifier,
