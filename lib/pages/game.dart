@@ -65,13 +65,12 @@ class _GameScreenState extends State<Game> {
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
-    'assets/images/europa2.png',
+    'assets/images/europe2.png',
   ];
 
   String get _currentMode => text[selectedWorldNotifier.value];
-  
-  List<dynamic> get _currentList =>
-      worlds[selectedWorldNotifier.value];
+
+  List<dynamic> get _currentList => worlds[selectedWorldNotifier.value];
 
   dynamic get currentItem => _currentList[pick];
 
@@ -283,7 +282,8 @@ class _GameScreenState extends State<Game> {
             _title('Capitals Game'),
             IconButton(
               onPressed: () {
-                selectedWorldNotifier.value = (selectedWorldNotifier.value + 1) % worlds.length;
+                selectedWorldNotifier.value =
+                    (selectedWorldNotifier.value + 1) % worlds.length;
               },
               icon: ValueListenableBuilder<int>(
                 valueListenable: selectedWorldNotifier,
