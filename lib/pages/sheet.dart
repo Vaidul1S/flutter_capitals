@@ -7,12 +7,15 @@ import '../data/usa.dart';
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
-  List worlds = [capitals, usCapitals, euCapitals];
-  List text = [ "World", "USA", "Europe"];
-  List icons = ['assets/images/world.png', 'assets/images/usa.png', ];
+  static final List worlds = [capitals, usCapitals, euCapitals];
+  static const List text = ["World", "USA", "Europe"];
+  static const List icons = [
+    'assets/images/world.png',
+    'assets/images/usa.png',
+    'assets/images/europa.png',
+  ];
 
-  List<dynamic> get currentList =>
-      worlds[selectedWorldNotifier.value];
+  List<dynamic> get currentList => worlds[selectedWorldNotifier.value];
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ class SheetPage extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {
-              selectedWorldNotifier.value += 1;
+              selectedWorldNotifier.value = (selectedWorldNotifier.value + 1) % worlds.length;
             },
             icon: ValueListenableBuilder<int>(
               valueListenable: selectedWorldNotifier,
@@ -42,7 +45,6 @@ class SheetPage extends StatelessWidget {
                     SizedBox(
                       height: 70,
                       child: Image.asset(icons[selectedWorld]),
-
                     ),
                     Text(
                       text[selectedWorld],
@@ -62,9 +64,8 @@ class SheetPage extends StatelessWidget {
             child: ValueListenableBuilder<int>(
               valueListenable: selectedWorldNotifier,
               builder: (context, selectedWorld, child) {
-                final List<dynamic> currentList = selectedWorld
-                    ? capitals
-                    : usCapitals;
+                final List<dynamic> currentList =
+                    worlds[selectedWorldNotifier.value];
                 return ListView.builder(
                   padding: const EdgeInsets.all(20),
                   itemCount: currentList.length,
