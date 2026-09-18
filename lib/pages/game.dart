@@ -60,16 +60,16 @@ class _GameScreenState extends State<Game> {
   bool newRecord = false;
 
   List<String> currentOptions = [];
-  static final List worlds = [capitals, usCapitals, euCapitals];
-  static const List text = ["World", "USA", "Europe"];
+  static final List modes = [capitals, usCapitals, euCapitals];
+  static const List modeNames = ["World", "USA", "Europe"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
     'assets/images/europe2.png',
   ];
 
-  String get _currentMode => text[selectedModeNotifier.value];
-  List<dynamic> get _currentList => worlds[selectedModeNotifier.value];
+  String get _currentMode => modeNames[selectedModeNotifier.value];
+  List<dynamic> get _currentList => modes[selectedModeNotifier.value];
   dynamic get currentItem => _currentList[pick];
 
   @override
@@ -281,7 +281,7 @@ class _GameScreenState extends State<Game> {
             IconButton(
               onPressed: () {
                 selectedModeNotifier.value =
-                    (selectedModeNotifier.value + 1) % worlds.length;
+                    (selectedModeNotifier.value + 1) % modes.length;
               },
               icon: ValueListenableBuilder<int>(
                 valueListenable: selectedModeNotifier,

@@ -7,15 +7,15 @@ import '../data/usa.dart';
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
-  static final List worlds = [capitals, usCapitals, euCapitals];
-  static const List text = ["  World", "  USA", "  Europe"];
+  static final List modes = [capitals, usCapitals, euCapitals];
+  static const List modeNames = ["  World", "  USA", "  Europe"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
     'assets/images/europe2.png',
   ];
 
-  List<dynamic> get currentList => worlds[selectedModeNotifier.value];
+  List<dynamic> get currentList => modes[selectedModeNotifier.value];
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,11 @@ class SheetPage extends StatelessWidget {
           IconButton(
             onPressed: () {
               selectedModeNotifier.value =
-                  (selectedModeNotifier.value + 1) % worlds.length;
+                  (selectedModeNotifier.value + 1) % modes.length;
             },
             icon: ValueListenableBuilder<int>(
               valueListenable: selectedModeNotifier,
-              builder: (context, selectedWorld, child) {
+              builder: (context, selectedMode, child) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -45,10 +45,10 @@ class SheetPage extends StatelessWidget {
                     const SizedBox(width: 20),
                     SizedBox(
                       height: 70,
-                      child: Image.asset(icons[selectedWorld]),
+                      child: Image.asset(icons[selectedMode]),
                     ),
                     Text(
-                      text[selectedWorld],
+                      modeNames[selectedMode],
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 30,
@@ -64,9 +64,9 @@ class SheetPage extends StatelessWidget {
           Expanded(
             child: ValueListenableBuilder<int>(
               valueListenable: selectedModeNotifier,
-              builder: (context, selectedWorld, child) {
+              builder: (context, selectedMode, child) {
                 final List<dynamic> currentList =
-                    worlds[selectedModeNotifier.value];
+                    modes[selectedModeNotifier.value];
                 return ListView.builder(
                   padding: const EdgeInsets.all(20),
                   itemCount: currentList.length,
