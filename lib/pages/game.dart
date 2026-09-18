@@ -69,9 +69,7 @@ class _GameScreenState extends State<Game> {
   ];
 
   String get _currentMode => text[selectedWorldNotifier.value];
-
   List<dynamic> get _currentList => worlds[selectedWorldNotifier.value];
-
   dynamic get currentItem => _currentList[pick];
 
   @override
