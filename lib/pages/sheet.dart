@@ -15,7 +15,7 @@ class SheetPage extends StatelessWidget {
     'assets/images/europe2.png',
   ];
 
-  List<dynamic> get currentList => worlds[selectedWorldNotifier.value];
+  List<dynamic> get currentList => worlds[selectedModeNotifier.value];
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,11 @@ class SheetPage extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {
-              selectedWorldNotifier.value =
-                  (selectedWorldNotifier.value + 1) % worlds.length;
+              selectedModeNotifier.value =
+                  (selectedModeNotifier.value + 1) % worlds.length;
             },
             icon: ValueListenableBuilder<int>(
-              valueListenable: selectedWorldNotifier,
+              valueListenable: selectedModeNotifier,
               builder: (context, selectedWorld, child) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -63,10 +63,10 @@ class SheetPage extends StatelessWidget {
           ),
           Expanded(
             child: ValueListenableBuilder<int>(
-              valueListenable: selectedWorldNotifier,
+              valueListenable: selectedModeNotifier,
               builder: (context, selectedWorld, child) {
                 final List<dynamic> currentList =
-                    worlds[selectedWorldNotifier.value];
+                    worlds[selectedModeNotifier.value];
                 return ListView.builder(
                   padding: const EdgeInsets.all(20),
                   itemCount: currentList.length,
