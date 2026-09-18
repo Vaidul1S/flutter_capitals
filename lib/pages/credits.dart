@@ -34,7 +34,7 @@ class Credits extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: 'Capitals!\n\n',
+                        text: 'Game Capitals!\n\n',
                         style: TextStyle(fontSize: 36),
                       ),
                       TextSpan(
