@@ -450,7 +450,7 @@ class _GameScreenState extends State<Game> {
             Padding(
               padding: const EdgeInsets.all(24),
               child: Text(
-                'Jūs surinkote $score teisingus atsakymus\n iš $question pateiktų klausimų.',
+                'Jūs surinkote $score teisingų atsakymų\n iš $question pateiktų klausimų.',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontFamily: 'Unkempt Bold',
@@ -646,7 +646,7 @@ class _GameScreenState extends State<Game> {
         borderRadius: BorderRadius.circular(25),
       ),
       child: Text(
-        'Forfeit',
+        'Nutraukti',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: 'Unkempt Bold',
