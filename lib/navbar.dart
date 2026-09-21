@@ -21,15 +21,15 @@ class NavBarWidget extends StatelessWidget {
           destinations: [
             NavigationDestination(
               icon: Icon(Icons.games_outlined, size: 20),
-              label: 'Game',
+              label: 'Žaisti',
             ),
             NavigationDestination(
               icon: Icon(Icons.copyright_rounded, size: 20),
-              label: 'Credits',
+              label: 'Plačiau',
             ),
             NavigationDestination(
               icon: Icon(Icons.list_rounded, size: 20),
-              label: 'Lists',
+              label: 'Sąrašai',
             ),
           ],
           onDestinationSelected: (int value) {
