@@ -34,12 +34,12 @@ class Credits extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: 'Game Capitals!\n\n',
+                        text: 'Žaidimas Sostinės!\n\n',
                         style: TextStyle(fontSize: 36),
                       ),
                       TextSpan(
                         text:
-                            'Guess a World or Europe country or state of United States of America by the capital name\n\n',
+                            'Žaisk ir išmok pasaulio, europos ir Jav sostines!\n\n',
                         style: TextStyle(fontSize: 24),
                       ),
                       TextSpan(
