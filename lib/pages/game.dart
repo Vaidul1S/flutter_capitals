@@ -61,7 +61,7 @@ class _GameScreenState extends State<Game> {
 
   List<String> currentOptions = [];
   static final List modes = [capitals, usCapitals, euCapitals];
-  static const List modeNames = ["World", "USA", "Europe"];
+  static const List modeNames = ["Pasaulis", "JAV", "Europa"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
@@ -124,9 +124,9 @@ class _GameScreenState extends State<Game> {
     setState(() {
       if (selected == currentItem.name) {
         score += 1;
-        guess = 'Correct!';
+        guess = 'Teisingai!';
       } else {
-        guess = 'Wrong!';
+        guess = 'Neteisingai!';
         if (lives != null) {
           lives = lives! - 1;
         }
@@ -145,7 +145,7 @@ class _GameScreenState extends State<Game> {
       question = 0;
       score = 0;
       gameOn = true;
-      guess = 'Choose your answer';
+      guess = 'Pasirinkite atsakymą';
       _pickNewItem();
     });
   }
@@ -277,7 +277,7 @@ class _GameScreenState extends State<Game> {
                 ),
               ),
             ),
-            _title('Capitals Game'),
+            _title('Žaidimas Sostinės'),
             IconButton(
               onPressed: () {
                 selectedModeNotifier.value =
@@ -290,7 +290,7 @@ class _GameScreenState extends State<Game> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Select Mode',
+                        'Pasirinkite teritoriją ➡️',
                         style: TextStyle(
                           fontFamily: 'Unkempt Bold',
                           color: Color.fromRGBO(156, 39, 176, 1),
@@ -307,14 +307,14 @@ class _GameScreenState extends State<Game> {
                 },
               ),
             ),
-            _menuButton('20 Questions', () => _startTheGame(20)),
-            _menuButton('50 Questions', () => _startTheGame(50)),
-            _menuButton('3 Lives', () => _startTheGame(3)),
-            _menuButton('5 Lives', () => _startTheGame(5)),
-            _menuButton('Sudden Death', () => _startTheGame(1), ultimate: true),
+            _menuButton('20 klausimų', () => _startTheGame(20)),
+            _menuButton('50 klausimų', () => _startTheGame(50)),
+            _menuButton('3 klaidos', () => _startTheGame(3)),
+            _menuButton('5 klaidos', () => _startTheGame(5)),
+            _menuButton('Staigi Mirtis', () => _startTheGame(1), ultimate: true),
             GestureDetector(
               onTap: () => setState(() => showHighScore = true),
-              child: _recordsLabel('Records'),
+              child: _recordsLabel('Rekordai'),
             ),
           ],
         ),
@@ -336,7 +336,7 @@ class _GameScreenState extends State<Game> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Lives:',
+                'Gyvybės:',
                 style: TextStyle(
                   fontFamily: 'Unkempt Bold',
                   fontSize: 24,
@@ -360,7 +360,7 @@ class _GameScreenState extends State<Game> {
         Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Text(
-            'Question #${question + 1}',
+            'Klausimas #${question + 1}',
             style: const TextStyle(
               fontFamily: 'Unkempt Bold',
               fontSize: 18,
@@ -397,9 +397,9 @@ class _GameScreenState extends State<Game> {
                   fontFamily: 'Unkempt Bold',
                   fontSize: 26,
                   fontWeight: FontWeight.w800,
-                  color: guess == 'Choose your answer'
+                  color: guess == 'Pasirinkite atsakymą'
                       ? const Color.fromRGBO(156, 39, 176, 1)
-                      : (guess == 'Correct!'
+                      : (guess == 'Teisingai!'
                             ? const Color.fromRGBO(95, 220, 57, 1)
                             : const Color.fromRGBO(231, 36, 22, 1)),
                 ),
@@ -412,7 +412,7 @@ class _GameScreenState extends State<Game> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: Text(
-              'Score: $score',
+              'Taškai: $score',
               style: const TextStyle(
                 fontFamily: 'Unkempt Bold',
                 fontSize: 36,
@@ -434,12 +434,12 @@ class _GameScreenState extends State<Game> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _title('Game Over'),
+            _title('Žaidimas baigtas'),
             if (newRecord)
               const Padding(
                 padding: EdgeInsets.all(24),
                 child: Text(
-                  'New Record!!!',
+                  'Naujas rekordas!!!',
                   style: TextStyle(
                     fontFamily: 'Unkempt Bold',
                     fontSize: 24,
@@ -450,7 +450,7 @@ class _GameScreenState extends State<Game> {
             Padding(
               padding: const EdgeInsets.all(24),
               child: Text(
-                'You made $score correct answers\nout of $question questions.',
+                'Jūs surinkote $score teisingus atsakymus\n iš $question pateiktų klausimų.',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontFamily: 'Unkempt Bold',
@@ -462,7 +462,7 @@ class _GameScreenState extends State<Game> {
             const Padding(
               padding: EdgeInsets.all(24),
               child: Text(
-                'Good luck next time.',
+                'Sėkmės kitą kartą.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Unkempt Bold',
@@ -471,7 +471,7 @@ class _GameScreenState extends State<Game> {
                 ),
               ),
             ),
-            _menuButton('To Menu', _playAgain),
+            _menuButton('Į Meniu', _playAgain),
           ],
         ),
       ),
@@ -499,7 +499,7 @@ class _GameScreenState extends State<Game> {
                   vertical: 8,
                 ),
                 child: Text(
-                  'Reset Records',
+                  'Ištrinti Rekordus',
                   style: TextStyle(
                     fontFamily: 'Unkempt Bold',
                     fontSize: 18,
@@ -510,7 +510,7 @@ class _GameScreenState extends State<Game> {
               ),
             ),
           ),
-          _title('High Scores'),
+          _title('Aukščiausi pasiekimai'),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(24),
@@ -520,7 +520,7 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.mode} ${h.type} - Score: ${h.score}',
+                          '${h.mode} ${h.type} - Taškai: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
@@ -534,7 +534,7 @@ class _GameScreenState extends State<Game> {
               ),
             ),
           ),
-          _menuButton('To Menu', _playAgain),
+          _menuButton('Į Meniu', _playAgain),
           const SizedBox(height: 12),
         ],
       ),
