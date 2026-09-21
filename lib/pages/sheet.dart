@@ -8,7 +8,7 @@ class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
   static final List modes = [capitals, usCapitals, euCapitals];
-  static const List modeNames = ["  World", "  USA", "  Europe"];
+  static const List modeNames = ["  Pasaulis", "  Jav", "  Europa"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
@@ -35,11 +35,11 @@ class SheetPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Select List',
+                      'Pasirinkite sąrasą',
                       style: TextStyle(
                         fontFamily: 'Unkempt Bold',
                         color: Color.fromRGBO(156, 39, 176, 1),
-                        fontSize: 20,
+                        fontSize: 30,
                       ),
                     ),
                     const SizedBox(width: 20),
