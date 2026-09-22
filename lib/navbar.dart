@@ -25,11 +25,11 @@ class NavBarWidget extends StatelessWidget {
             ),
             NavigationDestination(
               icon: Icon(Icons.copyright_rounded, size: 20),
-              label: 'Plačiau',
+              label: 'Apie',
             ),
             NavigationDestination(
               icon: Icon(Icons.list_rounded, size: 20),
-              label: 'Sąrašai',
+              label: 'Lentelės',
             ),
           ],
           onDestinationSelected: (int value) {
