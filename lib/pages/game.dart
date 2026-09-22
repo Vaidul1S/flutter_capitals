@@ -157,19 +157,19 @@ class _GameScreenState extends State<Game> {
 
       if (e == 20) {
         length = 20;
-        type = '20 questions';
+        type = '20 klausimų';
       } else if (e == 50) {
         length = 50;
-        type = '50 questions';
+        type = '50 klausimų';
       } else if (e == 3) {
         lives = 3;
-        type = '3 lives';
+        type = '3 klaidos';
       } else if (e == 5) {
         lives = 5;
-        type = '5 lives';
+        type = '5 klaidos';
       } else if (e == 1) {
         lives = 1;
-        type = 'Ultimate';
+        type = 'Staigi Mirtis';
       }
     });
     _reset();
