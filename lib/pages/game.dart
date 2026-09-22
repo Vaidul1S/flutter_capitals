@@ -499,7 +499,7 @@ class _GameScreenState extends State<Game> {
                   vertical: 8,
                 ),
                 child: Text(
-                  'Ištrinti Rekordus',
+                  'Ištrinti pasiekimus',
                   style: TextStyle(
                     fontFamily: 'Unkempt Bold',
                     fontSize: 18,
