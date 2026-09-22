@@ -8,7 +8,7 @@ class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
   static final List modes = [capitals, usCapitals, euCapitals];
-  static const List modeNames = ["  Pasaulis", "  Jav", "  Europa"];
+  static const List modeNames = ["Pasaulis", "Jav", "Europa"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
@@ -31,7 +31,7 @@ class SheetPage extends StatelessWidget {
             icon: ValueListenableBuilder<int>(
               valueListenable: selectedModeNotifier,
               builder: (context, selectedMode, child) {
-                return Row(
+                return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(

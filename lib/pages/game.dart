@@ -499,7 +499,7 @@ class _GameScreenState extends State<Game> {
                   vertical: 8,
                 ),
                 child: Text(
-                  'Ištrinti pasiekimus',
+                  'Ištrinti sąrašą',
                   style: TextStyle(
                     fontFamily: 'Unkempt Bold',
                     fontSize: 18,
