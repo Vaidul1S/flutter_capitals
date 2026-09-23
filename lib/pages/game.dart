@@ -314,10 +314,9 @@ class _GameScreenState extends State<Game> {
             ),
             IconButton(
               onPressed: () {
-                selectedPoolNotifier.value =
-                    (selectedPoolNotifier.value + 1) % pools.length;
+                selectedModeNotifier.value = !selectedModeNotifier.value;
               },
-              icon: ValueListenableBuilder<int>(
+              icon: ValueListenableBuilder<bool>(
                 valueListenable: selectedModeNotifier,
                 builder: (context, selectedMode, child) {
                   return Row(
