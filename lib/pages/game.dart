@@ -12,27 +12,27 @@ class HighScoreEntry {
   final int score;
   final int question;
   final String type;
-  final String mode;
+  final String pool;
 
   HighScoreEntry({
     required this.score,
     required this.question,
     required this.type,
-    required this.mode,
+    required this.pool,
   });
 
   Map<String, dynamic> toJson() => {
     'score': score,
     'question': question,
     'type': type,
-    'mode': mode,
+    'pool': pool,
   };
 
   factory HighScoreEntry.fromJson(Map<String, dynamic> json) => HighScoreEntry(
     score: json['score'] as int,
     question: json['question'] as int,
     type: json['type'] as String,
-    mode: json['mode'] as String,
+    pool: json['pool'] as String,
   );
 }
 
@@ -61,7 +61,7 @@ class _GameScreenState extends State<Game> {
 
   List<String> currentOptions = [];
   static final List pools = [capitals, usCapitals, euCapitals];
-  static const List modeNames = ["Pasaulis", "JAV", "Europa"];
+  static const List poolNames = ["Pasaulis", "JAV", "Europa"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
@@ -73,7 +73,7 @@ class _GameScreenState extends State<Game> {
   ];
 
 
-  String get _currentPool => modeNames[selectedPoolNotifier.value];
+  String get _currentPool => poolNames[selectedPoolNotifier.value];
   List<dynamic> get _currentList => pools[selectedPoolNotifier.value];
   dynamic get currentItem => _currentList[pick];
 
@@ -111,38 +111,74 @@ class _GameScreenState extends State<Game> {
     }
   }
 
+  void _changeMode() {
+    selectedModeNotifier.value = !selectedModeNotifier.value;
+  }
+
   void _pickNewItem() {
     final list = _currentList;
     pick = _random.nextInt(list.length);
-    final item = list[pick];
-    final opts = <String>[
-      item.name as String,
-      list[_random.nextInt(list.length)].name as String,
-      list[_random.nextInt(list.length)].name as String,
-      list[_random.nextInt(list.length)].name as String,
-    ];
-    opts.shuffle(_random);
-    currentOptions = opts;
+    if (selectedModeNotifier.value){
+      final item = list[pick];    
+      final opts = <String>[      
+        item.name as String,
+        list[_random.nextInt(list.length)].name as String,
+        list[_random.nextInt(list.length)].name as String,
+        list[_random.nextInt(list.length)].name as String,
+      ];
+      opts.shuffle(_random);
+      currentOptions = opts;
+    } else {
+      final item = list[pick];    
+      final opts = <String>[      
+        item.capital as String,
+        list[_random.nextInt(list.length)].capital as String,
+        list[_random.nextInt(list.length)].capital as String,
+        list[_random.nextInt(list.length)].capital as String,
+      ];
+      opts.shuffle(_random);
+      currentOptions = opts;
+    }
   }
 
   void _submitGuess(String selected) {
-    setState(() {
-      if (selected == currentItem.name) {
-        score += 1;
-        guess = 'Teisingai!';
-      } else {
-        guess = 'Neteisingai!';
-        if (lives != null) {
-          lives = lives! - 1;
+    if (selectedModeNotifier.value){
+      setState(() {
+        if (selected == currentItem.name) {
+          score += 1;
+          guess = 'Teisingai!';
+        } else {
+          guess = 'Neteisingai!';
+          if (lives != null) {
+            lives = lives! - 1;
+          }
         }
-      }
-      if (length != null) {
-        length = length! - 1;
-      }
-      question += 1;
-      _pickNewItem();
-    });
-    _checkGameEnd();
+        if (length != null) {
+          length = length! - 1;
+        }
+        question += 1;
+        _pickNewItem();
+      });
+      _checkGameEnd();
+    } else {
+      setState(() {
+        if (selected == currentItem.capital) {
+          score += 1;
+          guess = 'Teisingai!';
+        } else {
+          guess = 'Neteisingai!';
+          if (lives != null) {
+            lives = lives! - 1;
+          }
+        }
+        if (length != null) {
+          length = length! - 1;
+        }
+        question += 1;
+        _pickNewItem();
+      });
+      _checkGameEnd();
+    }
   }
 
   void _reset() {
@@ -200,10 +236,10 @@ class _GameScreenState extends State<Game> {
   Future<void> _saveRecord(
     int currentScore,
     int currentQuestion,
-    String currentMode,
+    String currentPool,
   ) async {
     final matching = highScore.where(
-      (h) => h.type == type && h.mode == currentMode,
+      (h) => h.type == type && h.pool == currentPool,
     );
     final shouldSave =
         matching.isEmpty || matching.any((h) => h.score < currentScore);
@@ -211,12 +247,12 @@ class _GameScreenState extends State<Game> {
     if (shouldSave) {
       setState(() {
         highScore = [
-          ...highScore.where((h) => !(h.type == type && h.mode == currentMode)),
+          ...highScore.where((h) => !(h.type == type && h.pool == currentPool)),
           HighScoreEntry(
             score: currentScore,
             question: currentQuestion,
             type: type!,
-            mode: currentMode,
+            pool: currentPool,
           ),
         ];
         newRecord = true;
@@ -314,7 +350,7 @@ class _GameScreenState extends State<Game> {
             ),
             IconButton(
               onPressed: () {
-                selectedModeNotifier.value = !selectedModeNotifier.value;
+                _changeMode();
               },
               icon: ValueListenableBuilder<bool>(
                 valueListenable: selectedModeNotifier,
@@ -405,7 +441,7 @@ class _GameScreenState extends State<Game> {
           padding: const EdgeInsets.symmetric(vertical: 15),
           child: Center(
             child: Text(
-              item.capital as String,
+              selectedModeNotifier.value ? item.capital as String : item.name as String,
               style: const TextStyle(
                 fontFamily: 'Unkempt Bold',
                 fontSize: 42,
@@ -553,7 +589,7 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.mode} ${h.type} - Taškai: ${h.score}',
+                          '${h.pool} ${h.type} - Taškai: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
