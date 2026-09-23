@@ -68,8 +68,8 @@ class _GameScreenState extends State<Game> {
     'assets/images/europe2.png',
   ];
 
-  String get _currentMode => modeNames[selectedModeNotifier.value];
-  List<dynamic> get _currentList => modes[selectedModeNotifier.value];
+  String get _currentMode => modeNames[selectedPoolNotifier.value];
+  List<dynamic> get _currentList => modes[selectedPoolNotifier.value];
   dynamic get currentItem => _currentList[pick];
 
   @override
@@ -280,11 +280,11 @@ class _GameScreenState extends State<Game> {
             _title('Žaidimas Sostinės'),
             IconButton(
               onPressed: () {
-                selectedModeNotifier.value =
-                    (selectedModeNotifier.value + 1) % modes.length;
+                selectedPoolNotifier.value =
+                    (selectedPoolNotifier.value + 1) % modes.length;
               },
               icon: ValueListenableBuilder<int>(
-                valueListenable: selectedModeNotifier,
+                valueListenable: selectedPoolNotifier,
                 builder: (context, selectedWorld, child) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
