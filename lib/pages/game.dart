@@ -60,16 +60,21 @@ class _GameScreenState extends State<Game> {
   bool newRecord = false;
 
   List<String> currentOptions = [];
-  static final List modes = [capitals, usCapitals, euCapitals];
+  static final List pools = [capitals, usCapitals, euCapitals];
   static const List modeNames = ["Pasaulis", "JAV", "Europa"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
     'assets/images/europe2.png',
   ];
+  static const List modeIcons = [
+    'assets/images/city.png',
+    'assets/images/countries.png'
+  ];
 
-  String get _currentMode => modeNames[selectedPoolNotifier.value];
-  List<dynamic> get _currentList => modes[selectedPoolNotifier.value];
+
+  String get _currentPool => modeNames[selectedPoolNotifier.value];
+  List<dynamic> get _currentList => pools[selectedPoolNotifier.value];
   dynamic get currentItem => _currentList[pick];
 
   @override
@@ -224,12 +229,12 @@ class _GameScreenState extends State<Game> {
     if (gameOn && (lives == 0 || length == 0)) {
       final finalScore = score;
       final finalQuestion = question;
-      final finalMode = _currentMode;
+      final finalPool = _currentPool;
       setState(() {
         gameOn = false;
         gameOver = true;
       });
-      _saveRecord(finalScore, finalQuestion, finalMode);
+      _saveRecord(finalScore, finalQuestion, finalPool);
     }
   }
 
@@ -281,11 +286,11 @@ class _GameScreenState extends State<Game> {
             IconButton(
               onPressed: () {
                 selectedPoolNotifier.value =
-                    (selectedPoolNotifier.value + 1) % modes.length;
+                    (selectedPoolNotifier.value + 1) % pools.length;
               },
               icon: ValueListenableBuilder<int>(
                 valueListenable: selectedPoolNotifier,
-                builder: (context, selectedWorld, child) {
+                builder: (context, selectedPool, child) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -300,7 +305,36 @@ class _GameScreenState extends State<Game> {
                       const SizedBox(width: 20),
                       SizedBox(
                         height: 50,
-                        child: Image.asset(icons[selectedWorld]),
+                        child: Image.asset(icons[selectedPool]),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                selectedPoolNotifier.value =
+                    (selectedPoolNotifier.value + 1) % pools.length;
+              },
+              icon: ValueListenableBuilder<int>(
+                valueListenable: selectedModeNotifier,
+                builder: (context, selectedMode, child) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Pasirinkite rėžimą ➡️',
+                        style: TextStyle(
+                          fontFamily: 'Unkempt Bold',
+                          color: Color.fromRGBO(156, 39, 176, 1),
+                          fontSize: 20,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      SizedBox(
+                        height: 50,
+                        child: Image.asset(selectedMode ? modeIcons[0] : modeIcons[1]),
                       ),
                     ],
                   );
