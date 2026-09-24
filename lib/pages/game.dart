@@ -604,7 +604,7 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.pool} ${h.type} ${h.mode} - Taškai: ${h.score}',
+                          '${h.pool} ${h.type} rėžimas: ${h.mode} - Taškai: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
