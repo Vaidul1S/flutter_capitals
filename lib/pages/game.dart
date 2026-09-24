@@ -57,6 +57,7 @@ class _GameScreenState extends State<Game> {
   List<HighScoreEntry> highScore = [];
   bool showHighScore = false;
   String? type;
+  String? mode;
   bool newRecord = false;
 
   List<String> currentOptions = [];
