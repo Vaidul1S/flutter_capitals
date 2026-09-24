@@ -13,12 +13,14 @@ class HighScoreEntry {
   final int question;
   final String type;
   final String pool;
+  final String mode;
 
   HighScoreEntry({
     required this.score,
     required this.question,
     required this.type,
     required this.pool,
+    required this.mode,
   });
 
   Map<String, dynamic> toJson() => {
@@ -33,6 +35,7 @@ class HighScoreEntry {
     question: json['question'] as int,
     type: json['type'] as String,
     pool: json['pool'] as String,
+    mode: json['mode'] as String,
   );
 }
 
@@ -74,6 +77,7 @@ class _GameScreenState extends State<Game> {
   ];
 
   String get _currentPool => poolNames[selectedPoolNotifier.value];
+  String get _currentMode => selectedModeNotifier.value ? "Sostinė -> Šalis" : "Šalis -> Sostinė";
   List<dynamic> get _currentList => pools[selectedPoolNotifier.value];
   dynamic get currentItem => _currentList[pick];
 
@@ -237,9 +241,10 @@ class _GameScreenState extends State<Game> {
     int currentScore,
     int currentQuestion,
     String currentPool,
+    String currentMode,
   ) async {
     final matching = highScore.where(
-      (h) => h.type == type && h.pool == currentPool,
+      (h) => h.type == type && h.pool == currentPool && h.mode == mode,
     );
     final shouldSave =
         matching.isEmpty || matching.any((h) => h.score < currentScore);
@@ -247,12 +252,13 @@ class _GameScreenState extends State<Game> {
     if (shouldSave) {
       setState(() {
         highScore = [
-          ...highScore.where((h) => !(h.type == type && h.pool == currentPool)),
+          ...highScore.where((h) => !(h.type == type && h.pool == currentPool && h.mode == mode)),
           HighScoreEntry(
             score: currentScore,
             question: currentQuestion,
             type: type!,
             pool: currentPool,
+            mode: currentMode,
           ),
         ];
         newRecord = true;
@@ -266,11 +272,12 @@ class _GameScreenState extends State<Game> {
       final finalScore = score;
       final finalQuestion = question;
       final finalPool = _currentPool;
+      final finalMode = _currentMode;
       setState(() {
         gameOn = false;
         gameOver = true;
       });
-      _saveRecord(finalScore, finalQuestion, finalPool);
+      _saveRecord(finalScore, finalQuestion, finalPool, finalMode);
     }
   }
 
@@ -597,7 +604,7 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.pool} ${h.type} - Taškai: ${h.score}',
+                          '${h.pool} ${h.type} ${h.mode} - Taškai: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
