@@ -69,9 +69,8 @@ class _GameScreenState extends State<Game> {
   ];
   static const List modeIcons = [
     'assets/images/city.png',
-    'assets/images/countries.png'
+    'assets/images/countries.png',
   ];
-
 
   String get _currentPool => poolNames[selectedPoolNotifier.value];
   List<dynamic> get _currentList => pools[selectedPoolNotifier.value];
@@ -118,9 +117,9 @@ class _GameScreenState extends State<Game> {
   void _pickNewItem() {
     final list = _currentList;
     pick = _random.nextInt(list.length);
-    if (selectedModeNotifier.value){
-      final item = list[pick];    
-      final opts = <String>[      
+    if (selectedModeNotifier.value) {
+      final item = list[pick];
+      final opts = <String>[
         item.name as String,
         list[_random.nextInt(list.length)].name as String,
         list[_random.nextInt(list.length)].name as String,
@@ -129,8 +128,8 @@ class _GameScreenState extends State<Game> {
       opts.shuffle(_random);
       currentOptions = opts;
     } else {
-      final item = list[pick];    
-      final opts = <String>[      
+      final item = list[pick];
+      final opts = <String>[
         item.capital as String,
         list[_random.nextInt(list.length)].capital as String,
         list[_random.nextInt(list.length)].capital as String,
@@ -142,7 +141,7 @@ class _GameScreenState extends State<Game> {
   }
 
   void _submitGuess(String selected) {
-    if (selectedModeNotifier.value){
+    if (selectedModeNotifier.value) {
       setState(() {
         if (selected == currentItem.name) {
           score += 1;
@@ -369,7 +368,9 @@ class _GameScreenState extends State<Game> {
                       const SizedBox(width: 20),
                       SizedBox(
                         height: 50,
-                        child: Image.asset(selectedMode ? modeIcons[0] : modeIcons[1]),
+                        child: Image.asset(
+                          selectedMode ? modeIcons[0] : modeIcons[1],
+                        ),
                       ),
                     ],
                   );
@@ -380,7 +381,11 @@ class _GameScreenState extends State<Game> {
             _menuButton('50 klausimų', () => _startTheGame(50)),
             _menuButton('3 klaidos', () => _startTheGame(3)),
             _menuButton('5 klaidos', () => _startTheGame(5)),
-            _menuButton('Staigi Mirtis', () => _startTheGame(1), ultimate: true),
+            _menuButton(
+              'Staigi Mirtis',
+              () => _startTheGame(1),
+              ultimate: true,
+            ),
             GestureDetector(
               onTap: () => setState(() => showHighScore = true),
               child: _recordsLabel('Rekordai'),
@@ -441,7 +446,9 @@ class _GameScreenState extends State<Game> {
           padding: const EdgeInsets.symmetric(vertical: 15),
           child: Center(
             child: Text(
-              selectedModeNotifier.value ? item.capital as String : item.name as String,
+              selectedModeNotifier.value
+                  ? item.capital as String
+                  : item.name as String,
               style: const TextStyle(
                 fontFamily: 'Unkempt Bold',
                 fontSize: 42,
