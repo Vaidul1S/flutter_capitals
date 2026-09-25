@@ -77,7 +77,8 @@ class _GameScreenState extends State<Game> {
   ];
 
   String get _currentPool => poolNames[selectedPoolNotifier.value];
-  String get _currentMode => selectedModeNotifier.value ? "Sostinė -> Šalis" : "Šalis -> Sostinė";
+  String get _currentMode =>
+      selectedModeNotifier.value ? "Sostinė -> Šalis" : "Šalis -> Sostinė";
   List<dynamic> get _currentList => pools[selectedPoolNotifier.value];
   dynamic get currentItem => _currentList[pick];
 
@@ -252,7 +253,9 @@ class _GameScreenState extends State<Game> {
     if (shouldSave) {
       setState(() {
         highScore = [
-          ...highScore.where((h) => !(h.type == type && h.pool == currentPool && h.mode == mode)),
+          ...highScore.where(
+            (h) => !(h.type == type && h.pool == currentPool && h.mode == mode),
+          ),
           HighScoreEntry(
             score: currentScore,
             question: currentQuestion,
