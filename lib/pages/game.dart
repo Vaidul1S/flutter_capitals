@@ -394,6 +394,17 @@ class _GameScreenState extends State<Game> {
                           selectedMode ? modeIcons[0] : modeIcons[1],
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          selectedMode ? "Sosinė" : "Šalis",
+                          style: TextStyle(
+                            fontFamily: 'Unkempt Bold',
+                            color: Color.fromRGBO(156, 39, 176, 1),
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
                     ],
                   );
                 },
