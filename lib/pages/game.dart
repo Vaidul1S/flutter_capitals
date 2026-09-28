@@ -354,7 +354,7 @@ class _GameScreenState extends State<Game> {
                         child: Image.asset(icons[selectedPool]),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                        padding: const EdgeInsets.only(left: 20),
                         child: Text(
                           poolNames[selectedPool],
                           style: TextStyle(
@@ -395,7 +395,7 @@ class _GameScreenState extends State<Game> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                        padding: const EdgeInsets.only(left: 20),
                         child: Text(
                           selectedMode ? "Sosinė" : "Šalis",
                           style: TextStyle(
