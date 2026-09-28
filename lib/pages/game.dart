@@ -28,6 +28,7 @@ class HighScoreEntry {
     'question': question,
     'type': type,
     'pool': pool,
+    'mode': mode,
   };
 
   factory HighScoreEntry.fromJson(Map<String, dynamic> json) => HighScoreEntry(
