@@ -397,7 +397,7 @@ class _GameScreenState extends State<Game> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20),
                         child: Text(
-                          selectedMode ? "Sosinė" : "Šalis",
+                          selectedMode ? "Sosinė -> Šalis" : "Šalis -> Sosinė",
                           style: TextStyle(
                             fontFamily: 'Unkempt Bold',
                             color: Color.fromRGBO(156, 39, 176, 1),
