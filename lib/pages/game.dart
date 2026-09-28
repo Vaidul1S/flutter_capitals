@@ -106,6 +106,8 @@ class _GameScreenState extends State<Game> {
     }
   }
 
+// ---------------------------------------------------------------- Functions ----------------------------------------------------------------
+
   Future<void> _persistHighScore() async {
     try {
       final prefs = await SharedPreferences.getInstance();
