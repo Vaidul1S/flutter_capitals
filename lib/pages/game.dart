@@ -353,12 +353,15 @@ class _GameScreenState extends State<Game> {
                         height: 50,
                         child: Image.asset(icons[selectedPool]),
                       ),
-                      Text(
-                        poolNames[selectedPool],
-                        style: TextStyle(
-                          fontFamily: 'Unkempt Bold',
-                          color: Color.fromRGBO(156, 39, 176, 1),
-                          fontSize: 20,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          poolNames[selectedPool],
+                          style: TextStyle(
+                            fontFamily: 'Unkempt Bold',
+                            color: Color.fromRGBO(156, 39, 176, 1),
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ],
