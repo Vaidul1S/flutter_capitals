@@ -321,7 +321,7 @@ class _GameScreenState extends State<Game> {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              height: 220,
+              height: 200,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(250),
                 child: Image.asset(
