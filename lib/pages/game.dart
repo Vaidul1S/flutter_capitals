@@ -331,7 +331,7 @@ class _GameScreenState extends State<Game> {
                 ),
               ),
             ),
-            _title('Žaidimas Sostinės 📱'),
+            _title('Žaidimas Sostinės📱'),
             IconButton(
               onPressed: () {
                 selectedPoolNotifier.value =
