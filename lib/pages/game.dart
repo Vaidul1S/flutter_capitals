@@ -379,36 +379,39 @@ class _GameScreenState extends State<Game> {
               icon: ValueListenableBuilder<bool>(
                 valueListenable: selectedModeNotifier,
                 builder: (context, selectedMode, child) {
-                  return Row(
+                  return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 1,
                     children: [
                       const Text(
-                        'Pasirinkite rėžimą ➡️',
+                        'Pasirinkite rėžimą ⬇️',
                         style: TextStyle(
                           fontFamily: 'Unkempt Bold',
                           color: Color.fromRGBO(156, 39, 176, 1),
                           fontSize: 20,
                         ),
                       ),
-                      const SizedBox(width: 20),
-                      SizedBox(
-                        height: 50,
-                        child: Image.asset(
-                          selectedMode ? modeIcons[0] : modeIcons[1],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Text(
-                          selectedMode
-                              ? "Sostinė -> Šalis"
-                              : "Šalis -> Sostinė",
-                          style: TextStyle(
-                            fontFamily: 'Unkempt Bold',
-                            color: Color.fromRGBO(156, 39, 176, 1),
-                            fontSize: 20,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 10,
+                        children: [
+                          Text(
+                            selectedMode
+                                ? "Sostinė -> Šalis"
+                                : "Šalis -> Sostinė",
+                            style: TextStyle(
+                              fontFamily: 'Unkempt Bold',
+                              color: Color.fromRGBO(156, 39, 176, 1),
+                              fontSize: 20,
+                            ),
                           ),
-                        ),
+                          SizedBox(
+                            height: 50,
+                            child: Image.asset(
+                              selectedMode ? modeIcons[0] : modeIcons[1],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   );
