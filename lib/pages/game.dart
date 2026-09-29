@@ -326,7 +326,7 @@ class _GameScreenState extends State<Game> {
                 borderRadius: BorderRadius.circular(250),
                 child: Image.asset(
                   'assets/images/globe.jpg',
-                  width: 350,
+                  width: 340,
                   fit: BoxFit.contain,
                 ),
               ),
