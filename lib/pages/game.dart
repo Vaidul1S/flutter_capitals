@@ -323,7 +323,7 @@ class _GameScreenState extends State<Game> {
             SizedBox(
               height: 200,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(250),
+                borderRadius: BorderRadius.circular(240),
                 child: Image.asset(
                   'assets/images/globe.jpg',
                   width: 340,
