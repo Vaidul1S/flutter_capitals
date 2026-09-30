@@ -344,7 +344,7 @@ class _GameScreenState extends State<Game> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Pasirinkite teritoriją ➡️',
+                        'Pasirinkite teritoriją➡️',
                         style: TextStyle(
                           fontFamily: 'Unkempt Bold',
                           color: Color.fromRGBO(156, 39, 176, 1),
@@ -384,7 +384,7 @@ class _GameScreenState extends State<Game> {
                     spacing: 1,
                     children: [
                       const Text(
-                        'Pasirinkite rėžimą ⬇️',
+                        'Pasirinkite rėžimą⬇️',
                         style: TextStyle(
                           fontFamily: 'Unkempt Bold',
                           color: Color.fromRGBO(156, 39, 176, 1),
