@@ -475,7 +475,7 @@ class _GameScreenState extends State<Game> {
         Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Text(
-            'Klausimas #${question + 1}',
+            'Klausimas Nr.${question + 1}',
             style: const TextStyle(
               fontFamily: 'Unkempt Bold',
               fontSize: 18,
