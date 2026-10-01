@@ -384,7 +384,7 @@ class _GameScreenState extends State<Game> {
                     spacing: 1,
                     children: [
                       const Text(
-                        'Pasirinkite rėžimą⬇️',
+                        'Pasirinkite žaidimo rėžimą⬇️',
                         style: TextStyle(
                           fontFamily: 'Unkempt Bold',
                           color: Color.fromRGBO(156, 39, 176, 1),
