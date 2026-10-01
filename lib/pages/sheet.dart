@@ -35,7 +35,7 @@ class SheetPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Pasirinkite sąrasą',
+                      'Pasirinkite teritoriją',
                       style: TextStyle(
                         fontFamily: 'Unkempt Bold',
                         color: Color.fromRGBO(156, 39, 176, 1),
