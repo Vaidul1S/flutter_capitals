@@ -7,6 +7,7 @@ import 'package:flutter_capitals/notifiers.dart';
 import '../data/world.dart';
 import '../data/usa.dart';
 import '../data/eu.dart';
+import '../data/africa.dart';
 
 class HighScoreEntry {
   final int score;
@@ -65,12 +66,13 @@ class _GameScreenState extends State<Game> {
   bool newRecord = false;
 
   List<String> currentOptions = [];
-  static final List pools = [capitals, usCapitals, euCapitals];
-  static const List poolNames = ["Pasaulis", "JAV", "Europa"];
+  static final List pools = [capitals, usCapitals, euCapitals, afCapitals];
+  static const List poolNames = ["Pasaulis", "JAV", "Europa", "Afrika"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
-    'assets/images/europe2.png',
+    'assets/images/europe1.png',
+    'assets/images/africa.png'
   ];
   static const List modeIcons = [
     'assets/images/city.png',

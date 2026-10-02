@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_capitals/data/eu.dart';
 import 'package:flutter_capitals/notifiers.dart';
 import '../data/world.dart';
 import '../data/usa.dart';
+import '../data/eu.dart';
+import '../data/africa.dart';
 
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
-  static final List modes = [capitals, usCapitals, euCapitals];
-  static const List modeNames = ["Pasaulis", "Jav", "Europa"];
+  static final List modes = [capitals, usCapitals, euCapitals, afCapitals];
+  static const List modeNames = ["Pasaulis", "Jav", "Europa", "Afrika"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
-    'assets/images/europe2.png',
+    'assets/images/europe1.png',
+    'assets/images/africa.png',
   ];
 
   List<dynamic> get currentList => modes[selectedPoolNotifier.value];
