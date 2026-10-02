@@ -20,15 +20,15 @@ class NavBarWidget extends StatelessWidget {
           ),
           destinations: [
             NavigationDestination(
-              icon: Icon(Icons.games_outlined, size: 20),
+              icon: Icon(Icons.sports_esports_outlined, size: 30),
               label: 'Žaisti',
             ),
             NavigationDestination(
-              icon: Icon(Icons.copyright_rounded, size: 20),
+              icon: Icon(Icons.copyright_rounded, size: 30),
               label: 'Apie',
             ),
             NavigationDestination(
-              icon: Icon(Icons.list_rounded, size: 20),
+              icon: Icon(Icons.list_rounded, size: 30),
               label: 'Lentelės',
             ),
           ],
