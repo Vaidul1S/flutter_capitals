@@ -250,7 +250,7 @@ class _GameScreenState extends State<Game> {
     String currentMode,
   ) async {
     final matching = highScore.where(
-      (h) => h.type == type && h.pool == currentPool && h.mode == mode,
+      (h) => h.type == type && h.pool == currentPool && h.mode == currentMode,
     );
     final shouldSave =
         matching.isEmpty || matching.any((h) => h.score < currentScore);
@@ -259,7 +259,7 @@ class _GameScreenState extends State<Game> {
       setState(() {
         highScore = [
           ...highScore.where(
-            (h) => !(h.type == type && h.pool == currentPool && h.mode == mode),
+            (h) => !(h.type == type && h.pool == currentPool && h.mode == currentMode),
           ),
           HighScoreEntry(
             score: currentScore,

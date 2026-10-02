@@ -14,7 +14,7 @@ const List<AfCountry> afCapitals = [
   AfCountry(name: 'Burundis', capital: 'Gitega'),
   AfCountry(name: 'Žaliasis Kyšulys', capital: 'Praja'),
   AfCountry(name: 'Kamerūnas', capital: 'Jaundė'),
-  AfCountry(name: 'Centrinės Afrikos Respublika', capital: 'Bangis'),
+  AfCountry(name: 'Centrinė Afrikos Respublika', capital: 'Bangis'),
   AfCountry(name: 'Čadas', capital: 'Ndžamena'),
   AfCountry(name: 'Komorai', capital: 'Moroni'),
   AfCountry(name: 'Kongo Respublika', capital: 'Brazavilis'),
