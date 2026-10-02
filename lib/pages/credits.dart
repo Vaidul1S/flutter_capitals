@@ -39,7 +39,8 @@ class Credits extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                            'Žaisk ir išmok pasaulio, europos ir Jav sostines!\n\n',
+                            """Žaisk ir išmok pasaulio sostines!\n Pagal teritorijas: Pasaulis, JAV, Europa, Afrika 
+                            \nGalimi rėžimai: Sostinė -> Šalis arba Šalis -> Sostinė\n\n""",
                         style: TextStyle(fontSize: 24),
                       ),
                       TextSpan(
