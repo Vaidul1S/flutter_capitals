@@ -75,8 +75,8 @@ class _GameScreenState extends State<Game> {
     'assets/images/africa.png'
   ];
   static const List modeIcons = [
-    'assets/images/capital1.png',
-    'assets/images/countries2.png',
+    'assets/images/capital2.png',
+    'assets/images/countries1.png',
   ];
 
   String get _currentPool => poolNames[selectedPoolNotifier.value];
