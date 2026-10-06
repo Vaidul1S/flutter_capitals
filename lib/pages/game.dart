@@ -8,6 +8,8 @@ import '../data/world.dart';
 import '../data/usa.dart';
 import '../data/eu.dart';
 import '../data/africa.dart';
+import '../data/na.dart';
+import '../data/sa.dart';
 
 class HighScoreEntry {
   final int score;
@@ -66,13 +68,15 @@ class _GameScreenState extends State<Game> {
   bool newRecord = false;
 
   List<String> currentOptions = [];
-  static final List pools = [capitals, usCapitals, euCapitals, afCapitals];
-  static const List poolNames = ["Pasaulis", "JAV", "Europa", "Afrika"];
+  static final List pools = [capitals, usCapitals, euCapitals, afCapitals, naCapitals, saCapitals];
+  static const List poolNames = ["Pasaulis", "JAV", "Europa", "Afrika", "Šiaurės Amerika", "Pietų Amerika"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
     'assets/images/europe.png',
-    'assets/images/africa.png'
+    'assets/images/africa.png',
+    'assets/images/na2.png',
+    'assets/images/sa2.png',
   ];
   static const List modeIcons = [
     'assets/images/capital2.png',

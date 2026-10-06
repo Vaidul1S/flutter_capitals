@@ -4,17 +4,21 @@ import '../data/world.dart';
 import '../data/usa.dart';
 import '../data/eu.dart';
 import '../data/africa.dart';
+import '../data/na.dart';
+import '../data/sa.dart';
 
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
-  static final List modes = [capitals, usCapitals, euCapitals, afCapitals];
-  static const List modeNames = ["Pasaulis", "Jav", "Europa", "Afrika"];
+  static final List modes = [capitals, usCapitals, euCapitals, afCapitals, naCapitals, saCapitals];
+  static const List modeNames = ["Pasaulis", "Jav", "Europa", "Afrika", "Šiaurės Amerika", "Pietų Amerika"];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
     'assets/images/europe.png',
     'assets/images/africa.png',
+    'assets/images/na2.png',
+    'assets/images/sa2.png',
   ];
 
   List<dynamic> get currentList => modes[selectedPoolNotifier.value];
