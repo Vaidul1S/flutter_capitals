@@ -68,15 +68,29 @@ class _GameScreenState extends State<Game> {
   bool newRecord = false;
 
   List<String> currentOptions = [];
-  static final List pools = [capitals, usCapitals, euCapitals, afCapitals, naCapitals, saCapitals];
-  static const List poolNames = ["Pasaulis", "JAV", "Europa", "Afrika", "Šiaurės Amerika", "Pietų Amerika"];
+  static final List pools = [
+    capitals,
+    usCapitals,
+    euCapitals,
+    afCapitals,
+    naCapitals,
+    saCapitals,
+  ];
+  static const List poolNames = [
+    "Pasaulis",
+    "JAV",
+    "Europa",
+    "Afrika",
+    "Šiaurės Amerika",
+    "Pietų Amerika",
+  ];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
     'assets/images/europe.png',
     'assets/images/africa.png',
     'assets/images/na2.png',
-    'assets/images/sa2.png',
+    'assets/images/south2.png',
   ];
   static const List modeIcons = [
     'assets/images/capital2.png',
@@ -263,7 +277,10 @@ class _GameScreenState extends State<Game> {
       setState(() {
         highScore = [
           ...highScore.where(
-            (h) => !(h.type == type && h.pool == currentPool && h.mode == currentMode),
+            (h) =>
+                !(h.type == type &&
+                    h.pool == currentPool &&
+                    h.mode == currentMode),
           ),
           HighScoreEntry(
             score: currentScore,
@@ -346,7 +363,7 @@ class _GameScreenState extends State<Game> {
               icon: ValueListenableBuilder<int>(
                 valueListenable: selectedPoolNotifier,
                 builder: (context, selectedPool, child) {
-                  return Row(
+                  return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
@@ -357,19 +374,24 @@ class _GameScreenState extends State<Game> {
                           fontSize: 20,
                         ),
                       ),
-                      Text(
-                        poolNames[selectedPool],
-                        style: TextStyle(
-                          fontFamily: 'Unkempt Bold',
-                          color: Color.fromRGBO(156, 39, 176, 1),
-                          fontSize: 20,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            poolNames[selectedPool],
+                            style: TextStyle(
+                              fontFamily: 'Unkempt Bold',
+                              color: Color.fromRGBO(156, 39, 176, 1),
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                          SizedBox(
+                            height: 50,
+                            child: Image.asset(icons[selectedPool]),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 20),
-                      SizedBox(
-                        height: 50,
-                        child: Image.asset(icons[selectedPool]),
-                      ),                      
                     ],
                   );
                 },
