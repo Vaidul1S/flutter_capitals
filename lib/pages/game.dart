@@ -85,7 +85,7 @@ class _GameScreenState extends State<Game> {
     "Afrika",
     "Šiaurės Amerika",
     "Pietų Amerika",
-    "Azija"
+    "Azija",
   ];
   static const List icons = [
     'assets/images/world.png',

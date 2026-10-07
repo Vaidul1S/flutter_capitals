@@ -11,8 +11,24 @@ import '../data/asia.dart';
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
 
-  static final List modes = [capitals, usCapitals, euCapitals, afCapitals, naCapitals, saCapitals, asiaCapitals];
-  static const List modeNames = ["Pasaulis", "Jav", "Europa", "Afrika", "Šiaurės Amerika", "Pietų Amerika", "Azija"];
+  static final List modes = [
+    capitals,
+    usCapitals,
+    euCapitals,
+    afCapitals,
+    naCapitals,
+    saCapitals,
+    asiaCapitals,
+  ];
+  static const List modeNames = [
+    "Pasaulis",
+    "Jav",
+    "Europa",
+    "Afrika",
+    "Šiaurės Amerika",
+    "Pietų Amerika",
+    "Azija",
+  ];
   static const List icons = [
     'assets/images/world.png',
     'assets/images/usa.png',
