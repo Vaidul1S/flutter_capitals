@@ -11,6 +11,7 @@ import '../data/africa.dart';
 import '../data/na.dart';
 import '../data/sa.dart';
 import '../data/asia.dart';
+import '../data/oceania.dart';
 
 class HighScoreEntry {
   final int score;
@@ -77,6 +78,7 @@ class _GameScreenState extends State<Game> {
     naCapitals,
     saCapitals,
     asiaCapitals,
+    oceaniaCapitals
   ];
   static const List poolNames = [
     "Pasaulis",
@@ -86,6 +88,7 @@ class _GameScreenState extends State<Game> {
     "Šiaurės Amerika",
     "Pietų Amerika",
     "Azija",
+    "Okeanija"
   ];
   static const List icons = [
     'assets/images/world.png',
@@ -95,6 +98,7 @@ class _GameScreenState extends State<Game> {
     'assets/images/na2.png',
     'assets/images/south2.png',
     'assets/images/asia.png',
+    'assets/images/oceania.png',
   ];
   static const List modeIcons = [
     'assets/images/capital2.png',
