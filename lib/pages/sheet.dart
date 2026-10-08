@@ -7,6 +7,7 @@ import '../data/africa.dart';
 import '../data/na.dart';
 import '../data/sa.dart';
 import '../data/asia.dart';
+import '../data/oceania.dart';
 
 class SheetPage extends StatelessWidget {
   const SheetPage({super.key});
@@ -19,6 +20,7 @@ class SheetPage extends StatelessWidget {
     naCapitals,
     saCapitals,
     asiaCapitals,
+    oceaniaCapitals,
   ];
   static const List modeNames = [
     "Pasaulis",
@@ -28,6 +30,7 @@ class SheetPage extends StatelessWidget {
     "Šiaurės Amerika",
     "Pietų Amerika",
     "Azija",
+    "Okeanija"
   ];
   static const List icons = [
     'assets/images/world.png',
@@ -37,6 +40,7 @@ class SheetPage extends StatelessWidget {
     'assets/images/na2.png',
     'assets/images/south2.png',
     'assets/images/asia.png',
+    'assets/images/oceania.png',
   ];
 
   List<dynamic> get currentList => modes[selectedPoolNotifier.value];
