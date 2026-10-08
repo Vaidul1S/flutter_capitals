@@ -78,7 +78,7 @@ class _GameScreenState extends State<Game> {
     naCapitals,
     saCapitals,
     asiaCapitals,
-    oceaniaCapitals
+    oceaniaCapitals,
   ];
   static const List poolNames = [
     "Pasaulis",
@@ -88,7 +88,7 @@ class _GameScreenState extends State<Game> {
     "Šiaurės Amerika",
     "Pietų Amerika",
     "Azija",
-    "Okeanija"
+    "Okeanija",
   ];
   static const List icons = [
     'assets/images/world.png',

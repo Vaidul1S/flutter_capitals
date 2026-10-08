@@ -30,7 +30,7 @@ class SheetPage extends StatelessWidget {
     "Šiaurės Amerika",
     "Pietų Amerika",
     "Azija",
-    "Okeanija"
+    "Okeanija",
   ];
   static const List icons = [
     'assets/images/world.png',
