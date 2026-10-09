@@ -39,7 +39,7 @@ class SheetPage extends StatelessWidget {
     'assets/images/africa.png',
     'assets/images/na2.png',
     'assets/images/south2.png',
-    'assets/images/asia.png',
+    'assets/images/asia2.png',
     'assets/images/oceania.png',
   ];
 
