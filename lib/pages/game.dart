@@ -98,7 +98,7 @@ class _GameScreenState extends State<Game> {
     'assets/images/na2.png',
     'assets/images/south2.png',
     'assets/images/asia2.png',
-    'assets/images/oceania.png',
+    'assets/images/oceania2.png',
   ];
   static const List modeIcons = [
     'assets/images/capital2.png',
