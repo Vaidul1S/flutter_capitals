@@ -24,7 +24,7 @@ class SheetPage extends StatelessWidget {
   ];
   static const List modeNames = [
     "Pasaulis",
-    "Jav",
+    "JAV",
     "Europa",
     "Afrika",
     "Šiaurės Amerika",
