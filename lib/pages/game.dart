@@ -576,7 +576,7 @@ class _GameScreenState extends State<Game> {
   }
 
   // --------------------------------------------------------------------- Game Over ---------------------------------------------------------------------
-  
+
   Widget _buildGameOverScreen() {
     return Container(
       color: const Color.fromRGBO(16, 43, 51, 1),
