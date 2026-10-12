@@ -70,24 +70,20 @@ class SheetPage extends StatelessWidget {
                         fontSize: 30,
                       ),
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: icons.length,
-                            itemBuilder: (context, index) {
-                              return SizedBox(
-                                height: 60,
-                                width: 60,
-                                child: Image.asset(
-                                  icons[index],
-                                  fit: BoxFit.contain,
-                                ),
-                              );
-                            },
+                    SizedBox(
+                      height: 60,                      
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: icons.length,
+                        itemBuilder: (context, index) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Image.asset(
+                            icons[index],
+                            width: 40,
+                            height: 40,
                           ),
                         ),
-                      ],
+                      ),
                     ),
                     const SizedBox(width: 20),
                     SizedBox(
