@@ -70,6 +70,10 @@ class SheetPage extends StatelessWidget {
                         fontSize: 30,
                       ),
                     ),
+                    ListView.builder(itemCount: icons.length, itemBuilder: (context, index) {
+                      return SizedBox(height: 70, child: Image.asset(icons[index]),);
+                    },                    
+                    ),
                     const SizedBox(width: 20),
                     SizedBox(
                       height: 70,
