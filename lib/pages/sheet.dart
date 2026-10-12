@@ -74,8 +74,9 @@ class SheetPage extends StatelessWidget {
                       itemCount: icons.length,
                       itemBuilder: (context, index) {
                         return SizedBox(
-                          height: 20,
-                          child: Image.asset(icons[index]),
+                          height: 60,
+                          width: 60,
+                          child: Image.asset(icons[index], fit: BoxFit.contain),
                         );
                       },
                     ),
