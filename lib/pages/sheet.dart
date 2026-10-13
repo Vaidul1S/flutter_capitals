@@ -51,42 +51,12 @@ class SheetPage extends StatelessWidget {
       color: const Color.fromRGBO(68, 107, 119, 0.4),
       child: Column(
         children: [
-          IconButton(
-            onPressed: () {
-              selectedPoolNotifier.value =
-                  (selectedPoolNotifier.value + 1) % modes.length;
-            },
-            icon: ValueListenableBuilder<int>(
-              valueListenable: selectedPoolNotifier,
-              builder: (context, selectedMode, child) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Pasirinkite teritoriją',
-                      style: TextStyle(
-                        fontFamily: 'Unkempt Bold',
-                        color: Color.fromRGBO(156, 39, 176, 1),
-                        fontSize: 30,
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    SizedBox(
-                      height: 70,
-                      child: Image.asset(icons[selectedMode]),
-                    ),
-                    Text(
-                      modeNames[selectedMode],
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 30,
-                        fontFamily: 'Unkempt Bold',
-                        color: Color.fromRGBO(156, 39, 176, 1),
-                      ),
-                    ),
-                  ],
-                );
-              },
+          const Text(
+            'Pasirinkite teritoriją',
+            style: TextStyle(
+              fontFamily: 'Unkempt Bold',
+              color: Color.fromRGBO(156, 39, 176, 1),
+              fontSize: 30,
             ),
           ),
           SizedBox(
@@ -106,6 +76,36 @@ class SheetPage extends StatelessWidget {
                   },
                 ),
               ),
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              selectedPoolNotifier.value =
+                  (selectedPoolNotifier.value + 1) % modes.length;
+            },
+            icon: ValueListenableBuilder<int>(
+              valueListenable: selectedPoolNotifier,
+              builder: (context, selectedMode, child) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      modeNames[selectedMode],
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontFamily: 'Unkempt Bold',
+                        color: Color.fromRGBO(156, 39, 176, 1),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    SizedBox(
+                      height: 70,
+                      child: Image.asset(icons[selectedMode]),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
           Expanded(
