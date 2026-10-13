@@ -70,22 +70,6 @@ class SheetPage extends StatelessWidget {
                         fontSize: 30,
                       ),
                     ),
-                    SizedBox(
-                      height: 60,      
-                      width: 392,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: icons.length,
-                        itemBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Image.asset(
-                            icons[index],
-                            width: 40,
-                            height: 40,
-                          ),
-                        ),
-                      ),
-                    ),
                     const SizedBox(width: 20),
                     SizedBox(
                       height: 70,
@@ -103,6 +87,25 @@ class SheetPage extends StatelessWidget {
                   ],
                 );
               },
+            ),
+          ),
+          SizedBox(
+            height: 60,
+            width: 392,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: icons.length,
+              itemBuilder: (context, index) => IconButton(
+                onPressed: () {
+                  selectedPoolNotifier.value = index % modes.length;
+                },
+                icon: ValueListenableBuilder<int>(
+                  valueListenable: selectedPoolNotifier,
+                  builder: (context, selectedMode, child) {
+                    return Image.asset(icons[index], width: 40, height: 40);
+                  },
+                ),
+              ),
             ),
           ),
           Expanded(
