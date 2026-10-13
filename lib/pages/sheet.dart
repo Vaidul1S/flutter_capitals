@@ -72,6 +72,7 @@ class SheetPage extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 60,      
+                      width: 392,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: icons.length,
