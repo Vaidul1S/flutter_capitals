@@ -56,7 +56,7 @@ class SheetPage extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Unkempt Bold',
               color: Color.fromRGBO(156, 39, 176, 1),
-              fontSize: 30,
+              fontSize: 32,
             ),
           ),
           SizedBox(
