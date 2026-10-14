@@ -67,7 +67,7 @@ class SheetPage extends StatelessWidget {
               itemCount: icons.length,
               itemBuilder: (context, index) => IconButton(
                 onPressed: () {
-                  selectedPoolNotifier.value = index % modes.length;
+                  selectedPoolNotifier.value = index % icons.length;
                 },
                 icon: ValueListenableBuilder<int>(
                   valueListenable: selectedPoolNotifier,
