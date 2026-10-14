@@ -363,6 +363,14 @@ class _GameScreenState extends State<Game> {
               ),
             ),
             _title('Žaidimas Sostinės'),
+            const Text(
+                        'Pasirinkite teritoriją: ',
+                        style: TextStyle(
+                          fontFamily: 'Unkempt Bold',
+                          color: Color.fromRGBO(156, 39, 176, 1),
+                          fontSize: 20,
+                        ),
+                      ),
             SizedBox(
               height: 50,
               width: 392,
@@ -392,15 +400,7 @@ class _GameScreenState extends State<Game> {
                 builder: (context, selectedPool, child) {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Pasirinkite teritoriją: ',
-                        style: TextStyle(
-                          fontFamily: 'Unkempt Bold',
-                          color: Color.fromRGBO(156, 39, 176, 1),
-                          fontSize: 20,
-                        ),
-                      ),
+                    children: [                      
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
