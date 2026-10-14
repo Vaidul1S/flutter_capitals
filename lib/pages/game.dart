@@ -734,7 +734,7 @@ class _GameScreenState extends State<Game> {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'Unkempt Bold',
-              fontSize: 24,
+              fontSize: 26,
               color: ultimate
                   ? const Color.fromRGBO(182, 133, 28, 1)
                   : const Color.fromRGBO(156, 39, 176, 1),
