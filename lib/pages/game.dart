@@ -363,6 +363,25 @@ class _GameScreenState extends State<Game> {
               ),
             ),
             _title('Žaidimas Sostinės'),
+            SizedBox(
+              height: 50,
+              width: 392,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: icons.length,
+                itemBuilder: (context, index) => IconButton(
+                  onPressed: () {
+                    selectedPoolNotifier.value = index % modes.length;
+                  },
+                  icon: ValueListenableBuilder<int>(
+                    valueListenable: selectedPoolNotifier,
+                    builder: (context, selectedMode, child) {
+                      return Image.asset(icons[index], width: 40, height: 40);
+                    },
+                  ),
+                ),
+              ),
+            ),
             IconButton(
               onPressed: () {
                 selectedPoolNotifier.value =
