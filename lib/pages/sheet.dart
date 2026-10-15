@@ -33,7 +33,7 @@ class SheetPage extends StatelessWidget {
     "Okeanija",
   ];
   static const List icons = [
-    'assets/images/world.png',
+    'assets/images/world2.png',
     'assets/images/usa.png',
     'assets/images/europe.png',
     'assets/images/africa.png',
