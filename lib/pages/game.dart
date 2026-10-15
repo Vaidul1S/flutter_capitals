@@ -413,7 +413,7 @@ class _GameScreenState extends State<Game> {
                           ),
                           const SizedBox(width: 20),
                           SizedBox(
-                            height: 50,
+                            height: 30,
                             child: Image.asset(icons[selectedPool]),
                           ),
                         ],
@@ -734,7 +734,7 @@ class _GameScreenState extends State<Game> {
     bool ultimate = false,
   }) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
