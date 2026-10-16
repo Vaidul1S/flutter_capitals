@@ -91,14 +91,14 @@ class _GameScreenState extends State<Game> {
     "Okeanija",
   ];
   static const List icons = [
-    'assets/images/world.png',
-    'assets/images/usa.png',
+    'assets/images/earth.png',
+    'assets/images/usa2.png',
     'assets/images/europe.png',
-    'assets/images/africa.png',
-    'assets/images/na3.png',
-    'assets/images/south2.png',
-    'assets/images/asia2.png',
-    'assets/images/oceania2.png',
+    'assets/images/africa1.png',
+    'assets/images/na1.png',
+    'assets/images/south1.png',
+    'assets/images/asia1.png',
+    'assets/images/oceania1.png',
   ];
   static const List modeIcons = [
     'assets/images/capital2.png',

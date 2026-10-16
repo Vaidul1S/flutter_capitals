@@ -36,11 +36,11 @@ class SheetPage extends StatelessWidget {
     'assets/images/earth.png',
     'assets/images/usa2.png',
     'assets/images/europe.png',
-    'assets/images/africa.png',
+    'assets/images/africa1.png',
     'assets/images/na1.png',
-    'assets/images/south2.png',
-    'assets/images/asia2.png',
-    'assets/images/oceania2.png',
+    'assets/images/south1.png',
+    'assets/images/asia1.png',
+    'assets/images/oceania1.png',
   ];
 
   List<dynamic> get currentList => modes[selectedPoolNotifier.value];
