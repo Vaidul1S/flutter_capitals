@@ -443,9 +443,7 @@ class _GameScreenState extends State<Game> {
                     spacing: 10,
                     children: [
                       Text(
-                        selectedMode
-                            ? "Sostinė -> Šalis"
-                            : "Šalis -> Sostinė",
+                        selectedMode ? "Sostinė -> Šalis" : "Šalis -> Sostinė",
                         style: TextStyle(
                           fontFamily: 'Unkempt Bold',
                           color: Color.fromRGBO(156, 39, 176, 1),
@@ -687,7 +685,7 @@ class _GameScreenState extends State<Game> {
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
-                            fontSize: 20,
+                            fontSize: 22,
                             color: Color.fromRGBO(156, 39, 176, 1),
                           ),
                         ),
