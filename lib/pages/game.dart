@@ -424,13 +424,13 @@ class _GameScreenState extends State<Game> {
               ),
             ),
             const Text(
-                        'Pasirinkite žaidimo rėžimą:',
-                        style: TextStyle(
-                          fontFamily: 'Unkempt Bold',
-                          color: Color.fromRGBO(156, 39, 176, 1),
-                          fontSize: 20,
-                        ),
-                      ),
+              'Pasirinkite žaidimo rėžimą:',
+              style: TextStyle(
+                fontFamily: 'Unkempt Bold',
+                color: Color.fromRGBO(156, 39, 176, 1),
+                fontSize: 20,
+              ),
+            ),
             IconButton(
               onPressed: () {
                 _changeMode();
@@ -442,7 +442,6 @@ class _GameScreenState extends State<Game> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 1,
                     children: [
-                      
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         spacing: 10,
