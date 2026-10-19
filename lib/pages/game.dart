@@ -438,31 +438,25 @@ class _GameScreenState extends State<Game> {
               icon: ValueListenableBuilder<bool>(
                 valueListenable: selectedModeNotifier,
                 builder: (context, selectedMode, child) {
-                  return Column(
+                  return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 1,
+                    spacing: 10,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 10,
-                        children: [
-                          Text(
-                            selectedMode
-                                ? "Sostinė -> Šalis"
-                                : "Šalis -> Sostinė",
-                            style: TextStyle(
-                              fontFamily: 'Unkempt Bold',
-                              color: Color.fromRGBO(156, 39, 176, 1),
-                              fontSize: 20,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 50,
-                            child: Image.asset(
-                              selectedMode ? modeIcons[0] : modeIcons[1],
-                            ),
-                          ),
-                        ],
+                      Text(
+                        selectedMode
+                            ? "Sostinė -> Šalis"
+                            : "Šalis -> Sostinė",
+                        style: TextStyle(
+                          fontFamily: 'Unkempt Bold',
+                          color: Color.fromRGBO(156, 39, 176, 1),
+                          fontSize: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50,
+                        child: Image.asset(
+                          selectedMode ? modeIcons[0] : modeIcons[1],
+                        ),
                       ),
                     ],
                   );
@@ -689,11 +683,11 @@ class _GameScreenState extends State<Game> {
                       (h) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          '${h.pool} ${h.type} rėžimas: ${h.mode} - Taškai: ${h.score}',
+                          '${h.pool} ${h.type},\n ${h.mode} - Taškai: ${h.score}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Unkempt Bold',
-                            fontSize: 16,
+                            fontSize: 20,
                             color: Color.fromRGBO(156, 39, 176, 1),
                           ),
                         ),
