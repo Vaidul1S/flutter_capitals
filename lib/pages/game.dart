@@ -674,7 +674,7 @@ class _GameScreenState extends State<Game> {
           _title('Aukščiausi pasiekimai'),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
               child: ListView(
                 children: highScore
                     .map(
