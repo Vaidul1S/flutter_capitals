@@ -695,8 +695,10 @@ class _GameScreenState extends State<Game> {
               ),
             ),
           ),
-          _menuButton('Į Meniu', _playAgain),
-          const SizedBox(height: 12),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _menuButton('Į Meniu', _playAgain),
+          ),
         ],
       ),
     );
