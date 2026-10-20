@@ -17,7 +17,7 @@ class Credits extends StatelessWidget {
     return Container(
       color: const Color.fromRGBO(182, 133, 28, 1),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
         child: Column(
           children: [
             Expanded(
