@@ -679,7 +679,7 @@ class _GameScreenState extends State<Game> {
                 children: highScore
                     .map(
                       (h) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Text(
                           '${h.pool} ${h.type},\n ${h.mode} - Taškai: ${h.score}',
                           textAlign: TextAlign.center,
