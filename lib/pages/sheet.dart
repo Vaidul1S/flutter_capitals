@@ -115,12 +115,12 @@ class SheetPage extends StatelessWidget {
                 final List<dynamic> currentList =
                     modes[selectedPoolNotifier.value];
                 return ListView.builder(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(16),
                   itemCount: currentList.length,
                   itemBuilder: (context, index) {
                     final item = currentList[index];
                     return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      margin: const EdgeInsets.symmetric(vertical: 8),
                       child: Column(
                         children: [
                           Text(
