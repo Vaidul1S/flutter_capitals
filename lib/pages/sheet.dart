@@ -120,7 +120,7 @@ class SheetPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final item = currentList[index];
                     return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      margin: const EdgeInsets.symmetric(vertical: 10),
                       child: Column(
                         children: [
                           Text(
