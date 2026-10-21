@@ -481,6 +481,7 @@ class _GameScreenState extends State<Game> {
   }
 
   // --------------------------------------------------------------------- Game ---------------------------------------------------------------------
+  
   Widget _buildGameScreen() {
     final item = currentItem;
     return Column(
