@@ -696,7 +696,7 @@ class _GameScreenState extends State<Game> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: _menuButton('Į Meniu', _playAgain),
           ),
         ],
