@@ -345,6 +345,7 @@ class _GameScreenState extends State<Game> {
   }
 
   // --------------------------------------------------------------------- Menu ---------------------------------------------------------------------
+  
   Widget _buildMenuScreen() {
     return Center(
       child: SingleChildScrollView(
@@ -481,7 +482,7 @@ class _GameScreenState extends State<Game> {
   }
 
   // --------------------------------------------------------------------- Game ---------------------------------------------------------------------
-  
+
   Widget _buildGameScreen() {
     final item = currentItem;
     return Column(
