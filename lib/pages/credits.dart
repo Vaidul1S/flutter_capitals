@@ -29,7 +29,6 @@ class Credits extends StatelessWidget {
                   text: TextSpan(
                     style: const TextStyle(
                       fontFamily: 'Unkempt Bold',
-                      fontSize: 20,
                       color: Color.fromRGBO(156, 39, 176, 1),
                     ),
                     children: [
