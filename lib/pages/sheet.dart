@@ -98,7 +98,6 @@ class SheetPage extends StatelessWidget {
                         color: Color.fromRGBO(156, 39, 176, 1),
                       ),
                     ),
-                    const SizedBox(width: 20),
                     SizedBox(
                       height: 70,
                       child: Image.asset(icons[selectedMode]),
