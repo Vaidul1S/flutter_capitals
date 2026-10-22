@@ -26,8 +26,9 @@ class Credits extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: RichText(
                   textAlign: TextAlign.center,
-                  text: TextSpan(
+                  text: TextSpan(                    
                     style: const TextStyle(
+                      fontSize: 20,
                       fontFamily: 'Unkempt Bold',
                       color: Color.fromRGBO(156, 39, 176, 1),
                     ),
