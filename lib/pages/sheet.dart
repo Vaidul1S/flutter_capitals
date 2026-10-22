@@ -119,11 +119,11 @@ class SheetPage extends StatelessWidget {
                   itemCount: currentList.length,
                   itemBuilder: (context, index) {
                     final item = currentList[index];
-                    return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 10),
-                      child: Column(
-                        children: [
-                          Text(
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top:18.0),
+                          child: Text(
                             item.name,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
@@ -132,17 +132,17 @@ class SheetPage extends StatelessWidget {
                               color: Color.fromRGBO(156, 39, 176, 1),
                             ),
                           ),
-                          Text(
-                            item.capital,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 30,
-                              fontFamily: 'Unkempt',
-                              color: Color.fromRGBO(182, 133, 28, 1),
-                            ),
+                        ),
+                        Text(
+                          item.capital,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'Unkempt',
+                            color: Color.fromRGBO(182, 133, 28, 1),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     );
                   },
                 );
