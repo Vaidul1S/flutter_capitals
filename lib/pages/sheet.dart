@@ -120,7 +120,7 @@ class SheetPage extends StatelessWidget {
                     return Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 18.0),
+                          padding: const EdgeInsets.only(top: 18),
                           child: Text(
                             item.name,
                             textAlign: TextAlign.center,
