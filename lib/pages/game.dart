@@ -94,7 +94,7 @@ class _GameScreenState extends State<Game> {
     'assets/images/earth.png',
     'assets/images/usa2.png',
     'assets/images/europe.png',
-    'assets/images/africa2.png',
+    'assets/images/africa3.png',
     'assets/images/na1.png',
     'assets/images/south1.png',
     'assets/images/asia1.png',
