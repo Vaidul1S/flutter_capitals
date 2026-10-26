@@ -398,26 +398,21 @@ class _GameScreenState extends State<Game> {
               icon: ValueListenableBuilder<int>(
                 valueListenable: selectedPoolNotifier,
                 builder: (context, selectedPool, child) {
-                  return Column(
+                  return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            poolNames[selectedPool],
-                            style: TextStyle(
-                              fontFamily: 'Unkempt Bold',
-                              color: Color.fromRGBO(156, 39, 176, 1),
-                              fontSize: 20,
-                            ),
-                          ),
-                          const SizedBox(width: 20),
-                          SizedBox(
-                            height: 30,
-                            child: Image.asset(icons[selectedPool]),
-                          ),
-                        ],
+                      Text(
+                        poolNames[selectedPool],
+                        style: TextStyle(
+                          fontFamily: 'Unkempt Bold',
+                          color: Color.fromRGBO(156, 39, 176, 1),
+                          fontSize: 20,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      SizedBox(
+                        height: 40,
+                        child: Image.asset(icons[selectedPool]),
                       ),
                     ],
                   );
@@ -441,7 +436,7 @@ class _GameScreenState extends State<Game> {
                 builder: (context, selectedMode, child) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 10,
+                    spacing: 20,
                     children: [
                       Text(
                         selectedMode ? "Sostinė -> Šalis" : "Šalis -> Sostinė",
@@ -452,7 +447,7 @@ class _GameScreenState extends State<Game> {
                         ),
                       ),
                       SizedBox(
-                        height: 50,
+                        height: 40,
                         child: Image.asset(
                           selectedMode ? modeIcons[0] : modeIcons[1],
                         ),
@@ -762,7 +757,7 @@ class _GameScreenState extends State<Game> {
 
   Widget _recordsLabel(String label) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 12),
+      margin: const EdgeInsets.only(top: 10),
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
       decoration: BoxDecoration(
         color: const Color.fromRGBO(182, 133, 28, 1),
