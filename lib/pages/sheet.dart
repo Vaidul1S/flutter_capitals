@@ -60,8 +60,8 @@ class SheetPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 50,
-            width: 392,
+            height: 45,
+            width: 400,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: icons.length,
@@ -72,7 +72,7 @@ class SheetPage extends StatelessWidget {
                 icon: ValueListenableBuilder<int>(
                   valueListenable: selectedPoolNotifier,
                   builder: (context, selectedMode, child) {
-                    return Image.asset(icons[index], width: 40, height: 40);
+                    return Image.asset(icons[index]);
                   },
                 ),
               ),
