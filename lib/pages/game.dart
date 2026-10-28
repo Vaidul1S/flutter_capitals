@@ -343,7 +343,6 @@ class _GameScreenState extends State<Game> {
       body: SafeArea(child: body),
     );
   }
-
   // --------------------------------------------------------------------- Menu ---------------------------------------------------------------------
   Widget _buildMenuScreen() {
     return Center(
