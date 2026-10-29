@@ -21,6 +21,19 @@ class Credits extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: SizedBox(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(250),
+                  child: Image.asset(
+                    'assets/images/globe.jpg',
+                    width: 260,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
             Expanded(
               flex: 4,
               child: Container(

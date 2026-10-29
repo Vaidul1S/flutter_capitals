@@ -350,16 +350,7 @@ class _GameScreenState extends State<Game> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(250),
-                child: Image.asset(
-                  'assets/images/globe.jpg',
-                  width: 300,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
+            
             _title('Žaidimas Sostinės'),
             const Text(
               'Pasirinkite teritoriją: ',
