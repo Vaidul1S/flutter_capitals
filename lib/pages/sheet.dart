@@ -51,12 +51,15 @@ class SheetPage extends StatelessWidget {
       color: const Color.fromRGBO(68, 107, 119, 0.4),
       child: Column(
         children: [
-          const Text(
-            'Pasirinkite teritoriją',
-            style: TextStyle(
-              fontFamily: 'Unkempt Bold',
-              color: Color.fromRGBO(156, 39, 176, 1),
-              fontSize: 32,
+          Padding(
+            padding: const EdgeInsets.only(top:15),
+            child: const Text(
+              'Pasirinkite teritoriją',
+              style: TextStyle(
+                fontFamily: 'Unkempt Bold',
+                color: Color.fromRGBO(156, 39, 176, 1),
+                fontSize: 32,
+              ),
             ),
           ),
           SizedBox(
