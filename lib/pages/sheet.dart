@@ -42,7 +42,7 @@ class SheetPage extends StatelessWidget {
     'assets/images/asia1.png',
     'assets/images/oceania1.png',
   ];
-  
+
   List<dynamic> get currentList => modes[selectedPoolNotifier.value];
 
   @override
@@ -52,7 +52,7 @@ class SheetPage extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top:15),
+            padding: const EdgeInsets.only(top: 15),
             child: const Text(
               'Pasirinkite teritoriją',
               style: TextStyle(
@@ -82,6 +82,7 @@ class SheetPage extends StatelessWidget {
             ),
           ),
           IconButton(
+            padding: EdgeInsets.all(0),
             onPressed: () {
               selectedPoolNotifier.value =
                   (selectedPoolNotifier.value + 1) % modes.length;
@@ -123,7 +124,7 @@ class SheetPage extends StatelessWidget {
                     return Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 18),
+                          padding: const EdgeInsets.only(top: 10),
                           child: Text(
                             item.name,
                             textAlign: TextAlign.center,
