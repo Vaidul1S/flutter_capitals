@@ -343,6 +343,7 @@ class _GameScreenState extends State<Game> {
       body: SafeArea(child: body),
     );
   }
+
   // --------------------------------------------------------------------- Menu ---------------------------------------------------------------------
   Widget _buildMenuScreen() {
     return Center(
@@ -350,7 +351,6 @@ class _GameScreenState extends State<Game> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            
             _title('Žaidimas Sostinės'),
             const Text(
               'Pasirinkite teritoriją: ',
@@ -464,6 +464,7 @@ class _GameScreenState extends State<Game> {
       ),
     );
   }
+
   // --------------------------------------------------------------------- Game ---------------------------------------------------------------------
   Widget _buildGameScreen() {
     final item = currentItem;

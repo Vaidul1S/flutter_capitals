@@ -14,7 +14,6 @@ class Credits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       color: const Color.fromRGBO(182, 133, 28, 1),
       child: Padding(
