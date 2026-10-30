@@ -52,7 +52,7 @@ class SheetPage extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.only(top: 25),
             child: const Text(
               'Pasirinkite teritoriją',
               style: TextStyle(
@@ -63,8 +63,8 @@ class SheetPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 45,
-            width: 400,
+            height: 40,
+            width: 380,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: icons.length,
