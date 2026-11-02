@@ -361,8 +361,8 @@ class _GameScreenState extends State<Game> {
               ),
             ),
             SizedBox(
-              height: 42,
-              width: 370,             
+              height: 40,
+              width: 360,             
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: icons.length,

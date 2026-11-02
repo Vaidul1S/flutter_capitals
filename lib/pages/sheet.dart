@@ -50,6 +50,7 @@ class SheetPage extends StatelessWidget {
     return Container(
       color: const Color.fromRGBO(68, 107, 119, 0.4),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 25),
@@ -64,7 +65,7 @@ class SheetPage extends StatelessWidget {
           ),
           SizedBox(
             height: 40,
-            width: 370,
+            width: 360,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: icons.length,
