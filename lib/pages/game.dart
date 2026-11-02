@@ -337,7 +337,6 @@ class _GameScreenState extends State<Game> {
     } else {
       body = _buildMenuScreen();
     }
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(68, 107, 119, 0.4),
       body: SafeArea(child: body),
@@ -362,7 +361,7 @@ class _GameScreenState extends State<Game> {
             ),
             SizedBox(
               height: 40,
-              width: 360,             
+              width: 360,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: icons.length,
