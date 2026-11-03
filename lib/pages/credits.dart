@@ -21,7 +21,7 @@ class Credits extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 50.0),
+              padding: const EdgeInsets.only(top: 80.0),
               child: SizedBox(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(250),
